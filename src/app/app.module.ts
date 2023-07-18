@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { Router } from '@angular/router';
 import { CreateColonyComponent } from './create-colony/create-colony.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -12,11 +13,12 @@ import { CreateColonyComponent } from './create-colony/create-colony.component';
     AppComponent,
     RegisterComponent,
     CreateColonyComponent,
-    
+    LoginComponent    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule  ],
+    AppRoutingModule  
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

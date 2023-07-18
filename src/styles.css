@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+
+    font-family: 'Dancing Script', cursive;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-size: 21px;
+}
+
 body {
     margin: 0;
     background-color: #29353F;
@@ -14,4 +22,14 @@ body {
 .btn:hover {
     background-color: #ff3c45;
     cursor: pointer;
+}
+
+input {
+    border-radius: 10px;
+    padding: 5px;
+    width: 80%;
+}
+
+h2 {
+    font-family: 'Rye', cursive, sans-serif;
 }

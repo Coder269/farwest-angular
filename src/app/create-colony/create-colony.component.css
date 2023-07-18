@@ -1,0 +1,71 @@
+.allComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h3 {
+    font-weight: 100;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.colonyList {
+    text-align: center;
+}
+
+img {
+    width: 70%;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type=radio]:checked+label>img {
+    box-shadow: 0 0 3px 3px #a71d24;
+
+}
+
+
+.avatarList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.btn {
+
+    width: fit-content;
+    padding: 10px 50px;
+    margin: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.revolverLeft {
+    width: 50px;
+    rotate: -45deg;
+    position: relative;
+    top: 10px;
+}
+
+.revolverRight {
+    transform: scaleX(-1);
+    width: 50px;
+    rotate: 45deg;
+    position: relative;
+    top: 10px;
+}

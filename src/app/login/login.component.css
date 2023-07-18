@@ -23,12 +23,6 @@ fieldset {
     gap: 5px;
 }
 
-input {
-    border-radius: 10px;
-    padding: 5px;
-    width: 80%;
-}
-
 .btn {
     max-width: 20%;
 }
