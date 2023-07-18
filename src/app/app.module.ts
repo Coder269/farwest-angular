@@ -6,6 +6,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { Router } from '@angular/router';
 import { CreateColonyComponent } from './components/create-colony/create-colony.component';
 import { LoginComponent } from './components/login/login.component';
+import { LostPasswordComponent } from './components/lost-password/lost-password.component';
+
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
     RegisterComponent,
     CreateColonyComponent,
     LoginComponent,
+    LostPasswordComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

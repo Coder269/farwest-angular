@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateColonyComponent } from './components/create-colony/create-colony.component';
+import { LostPasswordComponent } from './components/lost-password/lost-password.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'create-colony',
     component: CreateColonyComponent,
   },
+  {
+    path: 'lost-password',
+    component: LostPasswordComponent,
+  }
 ];
 
 @NgModule({

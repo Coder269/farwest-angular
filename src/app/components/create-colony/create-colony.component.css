@@ -38,7 +38,7 @@ img {
   display: none;
 }
 
-input[type="radio"]:checked + label > img {
+input[type="radio"]:checked+label>img {
   box-shadow: 0 0 3px 3px #a71d24;
 }
 
