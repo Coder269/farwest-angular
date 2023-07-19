@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { Router } from '@angular/router';
 import { CreateColonyComponent } from './components/create-colony/create-colony.component';
 import { LoginComponent } from './components/login/login.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
     RegisterComponent,
     CreateColonyComponent,
     LoginComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
