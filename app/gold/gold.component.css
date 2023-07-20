@@ -1,0 +1,34 @@
+.gold-container{
+    display: flex;
+    flex-direction: column;
+    height:490px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.gold-container img{
+    width: 50px;
+    margin: 0 auto;
+}
+.countGold{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.goldCount{
+color:black;
+width:50px;
+margin:0  auto;
+background-color: white;
+border-radius: 10px 10px 10px;
+}
+
+.btn-sell{
+ width: 100px;
+ cursor: pointer;
+ margin: 0 auto;
+ background-color: #A71D23;
+ border-radius: 15px 15px 15px;
+ color:white;
+}

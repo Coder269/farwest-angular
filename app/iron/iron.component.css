@@ -1,0 +1,28 @@
+.iron-container{
+    display: flex;
+    flex-direction: column;
+    height:490px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.iron-container img{
+    width: 50px;
+    margin: 0 auto;
+}
+
+
+.ironCount{
+color:black;
+width:50px;
+margin:0  auto;
+background-color: white;
+border-radius: 20px 20px 20px;
+}
+
+.btn-sell{
+ width: 100px;
+ cursor: pointer;
+ margin: 0 auto;
+ background-color: #A71D23;
+}
