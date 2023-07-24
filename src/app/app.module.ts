@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
 import { CreateColonyComponent } from './components/create-colony/create-colony.component';
 import { LoginComponent } from './components/login/login.component';
 import { LostPasswordComponent } from './components/lost-password/lost-password.component';
+import { MainComponent } from './components/main/main.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { RankingComponent } from './components/ranking/ranking.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -16,9 +20,13 @@ import { LostPasswordComponent } from './components/lost-password/lost-password.
     CreateColonyComponent,
     LoginComponent,
     LostPasswordComponent,
+    MainComponent,
+    MenuComponent,
+    RankingComponent,
+    ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

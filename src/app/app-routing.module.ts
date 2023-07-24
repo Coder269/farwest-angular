@@ -4,6 +4,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateColonyComponent } from './components/create-colony/create-colony.component';
 import { LostPasswordComponent } from './components/lost-password/lost-password.component';
+import { MainComponent } from './components/main/main.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 
 const routes: Routes = [
   {
@@ -26,6 +30,22 @@ const routes: Routes = [
   {
     path: 'lost-password',
     component: LostPasswordComponent,
+  },
+  {
+    path: 'main',
+    component: MainComponent,
+  },
+  {
+    path: 'menu',
+    component: MenuComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
+    path: 'ranking',
+    component: RankingComponent,
   }
 ];
 
@@ -33,4 +53,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
