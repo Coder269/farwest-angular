@@ -1,0 +1,50 @@
+.allComponent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.podium {
+    display: flex;
+    flex-direction: column;
+}
+
+.podiumItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    height: 15vh;
+}
+
+.second {
+    position: relative;
+    right: 20%;
+}
+
+.third {
+    position: relative;
+    left: 20%;
+}
+
+.rest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+.restItem {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+}
+
+.restItem .icon {
+    height: 40px;
+    margin-right: 20px;
+}

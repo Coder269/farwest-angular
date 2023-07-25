@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 * {
 
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Dancing Script', cursive; */
     letter-spacing: 2px;
-    font-weight: 400;
+    font-weight: 4-00;
     font-size: 21px;
 }
 
@@ -32,4 +32,8 @@ input {
 
 h2 {
     font-family: 'Rye', cursive, sans-serif;
+}
+
+img {
+    border-radius: 10px;
 }
