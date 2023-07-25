@@ -1,0 +1,29 @@
+.rect {
+    
+    width: 90em;
+    height: 1.50em;
+    border-radius: 2cm;
+    background-color: brown;
+}
+
+.groupe {
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+}
+
+.groupe img {
+
+width: 110px;
+height: 110px;
+}
+
+.design img {
+    
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    
+
+}
+

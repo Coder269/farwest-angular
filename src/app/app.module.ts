@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { Router } from '@angular/router';
 import { CreateColonyComponent } from './create-colony/create-colony.component';
+import { ContactComponent } from './contact/contact.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -12,6 +14,8 @@ import { CreateColonyComponent } from './create-colony/create-colony.component';
     AppComponent,
     RegisterComponent,
     CreateColonyComponent,
+    ContactComponent,
+    ModalComponent,
     
   ],
   imports: [
