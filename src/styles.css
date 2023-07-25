@@ -33,3 +33,7 @@ input {
 h2 {
     font-family: 'Rye', cursive, sans-serif;
 }
+
+img {
+    border-radius: 10px;
+}

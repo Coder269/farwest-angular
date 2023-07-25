@@ -8,6 +8,7 @@ import { MainComponent } from './components/main/main.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { ColonieComponent } from './components/colonie/colonie.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'ranking',
     component: RankingComponent,
+  },
+  {
+    path: 'colonie',
+    component: ColonieComponent,
   }
 ];
 

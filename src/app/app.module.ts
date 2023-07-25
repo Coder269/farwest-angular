@@ -11,6 +11,7 @@ import { MainComponent } from './components/main/main.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ColonieComponent } from './components/colonie/colonie.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ContactComponent } from './components/contact/contact.component';
     MenuComponent,
     RankingComponent,
     ContactComponent,
+    ColonieComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
