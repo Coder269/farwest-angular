@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ModalComponent } from './modal/modal.component';
 import { ModalMineComponent } from './modal-mine/modal-mine.component';
 import { ModalForgeComponent } from './modal-forge/modal-forge.component';
+import { ModalResultLostComponent } from './modal-result-lost/modal-result-lost.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ModalForgeComponent } from './modal-forge/modal-forge.component';
     ModalComponent,
     ModalMineComponent,
     ModalForgeComponent,
+    ModalResultLostComponent,
     
   ],
   imports: [
