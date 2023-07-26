@@ -1,0 +1,32 @@
+<div class="allComponent">
+  <h2>New Account</h2>
+  <form (ngSubmit)="addUser()" [formGroup]="registerForm" #myForm="ngForm">
+    <fieldset>
+      <label for="userName">Your name : </label>
+      <input name="userName" type="text" formControlName="username" required />
+    </fieldset>
+    <fieldset>
+      <label for="userMail">Your email : </label>
+      <input name="userMail" type="email" formControlName="email" required />
+    </fieldset>
+    <fieldset>
+      <label for="password">Password : </label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        required
+      />
+    </fieldset>
+    <fieldset>
+      <label for="cpassword">Confirm password : </label>
+      <input
+        type="password"
+        name="cpassword"
+        formControlName="cpassword"
+        required
+      />
+    </fieldset>
+    <input type="submit" value="Create Account" class="btn" />
+  </form>
+</div>

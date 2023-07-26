@@ -23,14 +23,8 @@ fieldset {
     gap: 5px;
 }
 
-input {
-    border-radius: 10px;
-    padding: 5px;
-    width: 80%;
-}
-
 .btn {
-    max-width: 20%;
+    padding: 10px 20px;
 }
 
 ul {
@@ -45,4 +39,8 @@ ul {
 img {
     height: 40%;
     margin-top: 20px;
+}
+
+a {
+    color: white;
 }
