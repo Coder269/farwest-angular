@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { CreateColonyComponent } from './create-colony/create-colony.component';
 import { ContactComponent } from './contact/contact.component';
 import { ModalComponent } from './modal/modal.component';
+import { ModalMineComponent } from './modal-mine/modal-mine.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ModalComponent } from './modal/modal.component';
     CreateColonyComponent,
     ContactComponent,
     ModalComponent,
+    ModalMineComponent,
     
   ],
   imports: [

@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { RegisterComponent } from './register/register.component';
 import { CreateColonyComponent } from './create-colony/create-colony.component';
 import { ModalComponent } from './modal/modal.component';
+import { ModalMineComponent } from './modal-mine/modal-mine.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'modal',
     component: ModalComponent
+  },
+  {
+    path: 'modal-mine',
+    component: ModalMineComponent
   },
   {
     path: '',
