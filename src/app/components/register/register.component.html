@@ -1,13 +1,27 @@
 <div class="allComponent">
   <h2>New Account</h2>
-  <form (ngSubmit)="addUser()" [formGroup]="registerForm" #myForm="ngForm">
+  <form
+    (ngSubmit)="addUser($event)"
+    [formGroup]="registerForm"
+    #myForm="ngForm"
+  >
     <fieldset>
       <label for="userName">Your name : </label>
       <input name="userName" type="text" formControlName="username" required />
+      <div *ngIf="registerForm.controls.username.errors && submited">
+        <span *ngIf="registerForm.controls.username.errors?.['required']"
+          >User name is required</span
+        >
+      </div>
     </fieldset>
     <fieldset>
       <label for="userMail">Your email : </label>
       <input name="userMail" type="email" formControlName="email" required />
+      <div *ngIf="registerForm.controls.email.errors && submited">
+        <span *ngIf="registerForm.controls.email.errors?.['required']"
+          >E-mail is required.</span
+        >
+      </div>
     </fieldset>
     <fieldset>
       <label for="password">Password : </label>
@@ -17,6 +31,11 @@
         formControlName="password"
         required
       />
+      <div *ngIf="registerForm.controls.password.errors && submited">
+        <span *ngIf="registerForm.controls.password.errors?.['required']"
+          >Password is required.</span
+        >
+      </div>
     </fieldset>
     <fieldset>
       <label for="cpassword">Confirm password : </label>
@@ -26,6 +45,11 @@
         formControlName="cpassword"
         required
       />
+      <div *ngIf="registerForm.controls.cpassword.errors && submited">
+        <span *ngIf="registerForm.controls.cpassword.errors?.['required']"
+          >Confirm password is required.</span
+        >
+      </div>
     </fieldset>
     <button type="submit" class="btn">
       <a [routerLink]="['/create-colony']"></a>

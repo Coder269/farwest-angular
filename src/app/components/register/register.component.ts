@@ -5,6 +5,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,10 @@ import {
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
+
+  public registerError: boolean = false;
+  public submited: boolean = false;
 
   registerForm = this.formBuilder.group({
     username: [
@@ -24,9 +28,10 @@ export class RegisterComponent {
     cpassword: ['', [Validators.required]],
   });
 
-  public addUser() {
+  public addUser(event: Event) {
+    event.preventDefault();
+    this.submited = true;
     console.log(this.registerForm.value);
-    this.registerForm.get('username')?.invalid;
 
     fetch('http://localhost:8080/register', {
       method: 'post',
@@ -35,6 +40,15 @@ export class RegisterComponent {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(this.registerForm.value),
-    }).then((response) => console.log(response));
+    }).then((response) => {
+      console.log(response);
+      if (response.status == 200) {
+        localStorage.setItem('User created', 'true');
+        this.router.navigate(['/create-colony']);
+      } else {
+        localStorage.setItem('User not created', 'false');
+        this.registerError = true;
+      }
+    });
   }
 }
