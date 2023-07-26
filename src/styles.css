@@ -1,17 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  /* font-family: 'Dancing Script', cursive; */
+  letter-spacing: 2px;
+  font-weight: 4-00;
+  font-size: 21px;
+}
+
 body {
-    margin: 0;
-    background-color: #29353F;
-    color: white;
+  margin: 0;
+  background-color: #29353f;
+  color: white;
 }
 
 .btn {
-    background-color: #a71d24;
-    color: white;
-    border: none;
+  background-color: #a71d24;
+  color: white;
+  border: none;
 }
 
 .btn:hover {
-    background-color: #ff3c45;
-    cursor: pointer;
+  background-color: #ff3c45;
+  cursor: pointer;
+}
+
+input {
+  border-radius: 10px;
+  padding: 5px;
+  width: 80%;
+}
+
+h2 {
+  font-family: "Rye", cursive, sans-serif;
+}
+
+img {
+  border-radius: 10px;
 }

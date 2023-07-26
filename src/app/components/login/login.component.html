@@ -1,0 +1,29 @@
+<div class="allComponent">
+  <img src="../../assets/login_picture.png" alt="" />
+  <form (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
+    <fieldset>
+      <label for="userName">Your name : </label>
+      <input id="userName" type="text" formControlName="username" />
+      <div *ngIf="loginForm.controls.username.errors && submited">
+        <span *ngIf="loginForm.controls.username.errors?.['required']"
+          >User name is required</span
+        >
+      </div>
+    </fieldset>
+    <fieldset>
+      <label for="password">Password : </label>
+      <input type="password" id="password" formControlName="password" />
+      <div *ngIf="loginForm.controls.password.errors && submited">
+        <span *ngIf="loginForm.controls.password.errors?.['required']"
+          >Password is required.</span
+        >
+      </div>
+    </fieldset>
+    <input type="submit" value="Sign In" class="btn" />
+    <span *ngIf="loginError">Erreur d'utilisateur ou de mot de passe.</span>
+  </form>
+  <ul>
+    <li><a [routerLink]="['/register']">Create account</a></li>
+    <li><a [routerLink]="['/lost-password']">Lost your password</a></li>
+  </ul>
+</div>

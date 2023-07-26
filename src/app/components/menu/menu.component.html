@@ -1,0 +1,20 @@
+<div class="allComponent">
+    <h2>My assets</h2>
+    <img [src]="getAvatar()" alt="" class="avatar">
+    <div class="stat">
+        <h3>Level {{getLevel()}}</h3>
+        <h3>
+            <div>{{getMoney()}} <img class="icon" src="../../assets/money-bag.png" alt=""></div>
+        </h3>
+    </div>
+    <input type="submit" value="Log Out" class="btn" (click)="logOut()">
+    <hr>
+    <div class="menu">
+        <a class="menuItem" [routerLink]="['/ranking']"><img src="../../assets/arrow.png" alt="">
+            <p>Ranking</p>
+        </a>
+        <a class="menuItem" [routerLink]="['/contact']"><img src="../../assets/arrow.png" alt="">
+            <p>Contact</p>
+        </a>
+    </div>
+</div>
