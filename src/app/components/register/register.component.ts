@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,14 +13,24 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  registerForm = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    cpassword: new FormControl(''),
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
+
+  public registerError: boolean = false;
+  public submited: boolean = false;
+
+  registerForm = this.formBuilder.group({
+    username: [
+      '',
+      [Validators.required, Validators.minLength(4), Validators.maxLength(15)],
+    ],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+    cpassword: ['', [Validators.required]],
   });
 
-  public addUser() {
+  public addUser(event: Event) {
+    event.preventDefault();
+    this.submited = true;
     console.log(this.registerForm.value);
 
     fetch('http://localhost:8080/register', {
@@ -24,6 +40,15 @@ export class RegisterComponent {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(this.registerForm.value),
-    }).then((response) => console.log(response));
+    }).then((response) => {
+      console.log(response);
+      if (response.status == 200) {
+        localStorage.setItem('User created', 'true');
+        this.router.navigate(['/create-colony']);
+      } else {
+        localStorage.setItem('User not created', 'false');
+        this.registerError = true;
+      }
+    });
   }
 }
