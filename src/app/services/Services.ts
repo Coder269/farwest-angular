@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Timer } from '../interfaces/Timer';
 import { Colonie } from '../interfaces/colonie';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -58,4 +59,15 @@ export class Services {
     '../../assets/cowboy4.png',
     '../../assets/cowboy5.png',
   ];
+
+  public isLoggedIn(): boolean {
+    let status = false;
+    if (localStorage.getItem('isLoggedIn') == "true") {
+      status = true;
+    }
+    else {
+      status = false;
+    }
+    return status;
+  }
 }

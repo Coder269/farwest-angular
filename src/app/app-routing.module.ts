@@ -9,6 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
+import { authGuard } from './core/auth.guard';
 
 const routes: Routes = [
   {
@@ -27,30 +28,37 @@ const routes: Routes = [
   {
     path: 'create-colony',
     component: CreateColonyComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'lost-password',
     component: LostPasswordComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'menu',
     component: MenuComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'contact',
     component: ContactComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'ranking',
     component: RankingComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'colonie',
     component: ColonieComponent,
+    canActivate: [authGuard]
   }
 ];
 

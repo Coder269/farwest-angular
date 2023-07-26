@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Services } from 'src/app/services/Services';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +11,7 @@ export class MenuComponent {
   private avatar = "../../assets/cowboy1.png"
   private level = 15;
   private money = 750;
+  constructor(public service: Services, public router: Router) { }
 
   public getAvatar() {
     return this.avatar
@@ -19,4 +22,10 @@ export class MenuComponent {
   public getMoney() {
     return this.money
   }
+
+  public logOut() {
+    localStorage.setItem('isLoggedIn', 'false');
+    this.router.navigate(['/login'])
+  }
+
 }
