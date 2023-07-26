@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { CreateColonyComponent } from './create-colony/create-colony.component';
 import { ModalComponent } from './modal/modal.component';
 import { ModalMineComponent } from './modal-mine/modal-mine.component';
+import { ModalForgeComponent } from './modal-forge/modal-forge.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'modal-mine',
     component: ModalMineComponent
+  },
+  {
+    path: 'modal-forge',
+    component: ModalForgeComponent
   },
   {
     path: '',

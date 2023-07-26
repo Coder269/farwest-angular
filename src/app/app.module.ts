@@ -8,6 +8,7 @@ import { CreateColonyComponent } from './create-colony/create-colony.component';
 import { ContactComponent } from './contact/contact.component';
 import { ModalComponent } from './modal/modal.component';
 import { ModalMineComponent } from './modal-mine/modal-mine.component';
+import { ModalForgeComponent } from './modal-forge/modal-forge.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ModalMineComponent } from './modal-mine/modal-mine.component';
     ContactComponent,
     ModalComponent,
     ModalMineComponent,
+    ModalForgeComponent,
     
   ],
   imports: [
