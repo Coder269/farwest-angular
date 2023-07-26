@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    font-family: 'Open Sans',sans-serif;
+    text-align: center;
+    font-size: 30px;
+    flex-direction: column;
+    padding: 90px;   
+    
+}
+
+div img {
+    width: 300px;
+    
+}
