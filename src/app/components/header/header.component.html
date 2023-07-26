@@ -1,0 +1,18 @@
+<nav>
+  <div id="icon-menu" (click)="toggleMenu()">
+    <img
+      class="icon"
+      [src]="
+        isMenuOpen
+          ? '../../../assets/close.png'
+          : '../../../assets/menu-bar.png'
+      "
+      alt="menu burger"
+    />
+  </div>
+
+  <ul [hidden]="!isMenuOpen">
+    <li class="list" (click)="closeMenu()">Ranking</li>
+    <li class="list" (click)="closeMenu()">Contact</li>
+  </ul>
+</nav>
