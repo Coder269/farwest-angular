@@ -24,12 +24,13 @@ export class ColonieComponent implements OnInit {
     this.colonie = {
       colonyName: "Valey Hill",
       colonyPicture: "../../assets/village1.jpg"
-    }
+    } //requette a faire
+    this.ressources
     this.recolt = {
       wood: this.service.addSeconds(new Date(), 30),
       iron: this.service.addSeconds(new Date(), 1800),
       gold: this.service.addSeconds(new Date(), 3600)
-    }
+    } //requette a faire
     console.log(this.recolt);
     //on fait les requettes pour definir les dates!!!
     this.timer = {

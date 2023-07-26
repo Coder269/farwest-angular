@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

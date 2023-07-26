@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
-import { Colony } from '../create-colony/create-colony.component';
+import { Component, OnInit } from '@angular/core';
+import { Colonie } from 'src/app/interfaces/colonie';
+import { Services } from 'src/app/services/Services';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
- public avatar = "../../assets/cowboy1.png"
- public colonyList = [new Colony("Downtown valley", "", 3)]
+export class MainComponent implements OnInit {
+  public avatar = "../../assets/cowboy1.png"
+
+  constructor(public service: Services) { }
+
+  ngOnInit(): void {
+  }
 }
