@@ -8,7 +8,7 @@
 
         <h3> Select your colony :</h3>
         <fieldset class="colonyList">
-            <div *ngFor="let colony of colonyList">
+            <div *ngFor="let colony of this.service.colonieList">
                 <input type="radio" id={{colony.colonyName}} class="hidden" name="colonyPicture">
                 <label for={{colony.colonyName}}><img src={{colony.colonyPicture}} alt=""></label>
             </div>
@@ -16,7 +16,7 @@
 
         <h3>Select your avatar :</h3>
         <fieldset class="avatarList">
-            <div *ngFor="let avatar of avatarList; let i=index">
+            <div *ngFor="let avatar of this.service.avatarList; let i=index">
                 <input type="radio" id={{avatar}} class="hidden" name="avatar">
                 <label for={{avatar}}><img src={{avatar}} alt="" class="avatar"></label>
             </div>

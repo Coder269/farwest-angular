@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Timer } from '../interfaces/Timer';
+import { Colonie } from '../interfaces/colonie';
 
 
 @Injectable({
@@ -36,4 +37,25 @@ export class Services {
     dateModified.setTime(date.getTime() + nbSeconds * 1000)
     return dateModified
   }
+  public colonieList: Array<Colonie> = [
+    { colonyName: "colony 1", colonyPicture: `../../assets/village1.jpg` },
+    { colonyName: "colony 2", colonyPicture: `../../assets/village2.jpg` },
+    { colonyName: "colony 3", colonyPicture: `../../assets/village3.jpg` },
+    { colonyName: "colony 4", colonyPicture: `../../assets/village4.jpg` },
+    { colonyName: "colony 5", colonyPicture: `../../assets/village5.jpg` },
+    { colonyName: "colony 6", colonyPicture: `../../assets/village6.jpg` },
+    { colonyName: "colony 7", colonyPicture: `../../assets/village7.jpg` },
+
+  ]
+
+  public avatarList = [
+    '../../assets/cowboy1.png',
+    '../../assets/cowgirl1.png',
+    '../../assets/cowboy2.png',
+    '../../assets/cowgirl2.png',
+    '../../assets/cowboy3.png',
+    '../../assets/cowgirl3.png',
+    '../../assets/cowboy4.png',
+    '../../assets/cowboy5.png',
+  ];
 }

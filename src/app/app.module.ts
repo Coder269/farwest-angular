@@ -12,6 +12,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { ColonieComponent } from './components/colonie/colonie.component';
     ContactComponent,
     ColonieComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
