@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,15 +12,21 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  registerForm = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    cpassword: new FormControl(''),
+  constructor(private formBuilder: FormBuilder) {}
+
+  registerForm = this.formBuilder.group({
+    username: [
+      '',
+      [Validators.required, Validators.minLength(4), Validators.maxLength(15)],
+    ],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+    cpassword: ['', [Validators.required]],
   });
 
   public addUser() {
     console.log(this.registerForm.value);
+    this.registerForm.get('username')?.invalid;
 
     fetch('http://localhost:8080/register', {
       method: 'post',
