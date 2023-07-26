@@ -13,7 +13,7 @@ import { RankingComponent } from './components/ranking/ranking.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     ColonieComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
