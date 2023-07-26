@@ -1,6 +1,7 @@
 import { User } from '../Models/User';
 
 export interface Colonie {
+  id: number;
   colonyName: String;
   colonyPicture: String;
   user: User;
