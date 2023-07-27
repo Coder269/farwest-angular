@@ -1,0 +1,42 @@
+<div class="modal-container">
+  <ng-container *ngIf="resource === 'Wood'">
+    <img src="../../../assets/wood.png" alt="wood icon" class="resourceIcon" />
+    <p>How many wood do you want to sell ? Max : {{ resource }}</p>
+    <input type="text" placeholder="1000" />
+    <div class="priceToSell">
+      <p>{{ resource }}</p>
+      <img src="../../../assets/money-bag.png" alt="money bag" />
+    </div>
+    <button type="submit" (click)="closeModal()">Sell</button>
+  </ng-container>
+
+  <ng-container *ngIf="resource === 'Iron'">
+    <img
+      src="../../../assets/pig-iron.png"
+      alt="iron icon"
+      class="resourceIcon"
+    />
+    <p>How many iron do you want to sell ? Max : {{ resource }}</p>
+    <input type="text" placeholder="1000" />
+    <div class="priceToSell">
+      <p>{{ resource }}</p>
+      <img src="../../../assets/money-bag.png" alt="money bag" />
+    </div>
+    <button type="submit" (click)="closeModal()">Sell</button>
+  </ng-container>
+
+  <ng-container *ngIf="resource === 'Gold'">
+    <img
+      src="../../../assets/gold-ingots.png"
+      alt="gold icon"
+      class="resourceIcon"
+    />
+    <p>How many gold do you want to sell ? Max : {{ resource }}</p>
+    <input type="text" placeholder="1000" />
+    <div class="priceToSell">
+      <p>{{ resource }}</p>
+      <img src="../../../assets/money-bag.png" alt="money bag" />
+    </div>
+    <button type="submit" (click)="closeModal()">Sell</button>
+  </ng-container>
+</div>
