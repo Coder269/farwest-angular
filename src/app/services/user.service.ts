@@ -23,4 +23,8 @@ export class UserService {
   public updateMoney(userId: number, money: number): Observable<any> {
     return this.httpClient.put(API_URL + `update-money/${userId}`, money);
   }
+
+  public updateUser(newUser: User): Observable<User> {
+    return this.httpClient.put<User>(API_URL + 'update-user', newUser);
+  }
 }
