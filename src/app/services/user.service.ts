@@ -15,4 +15,12 @@ export class UserService {
   public getUserInfo(username: string): Observable<User> {
     return this.httpClient.get<User>(API_URL + `user-info/${username}`);
   }
+
+  public updateLevel(userId: number, level: number): Observable<any> {
+    return this.httpClient.put(API_URL + `update-level/${userId}`, level);
+  }
+
+  public updateMoney(userId: number, money: number): Observable<any> {
+    return this.httpClient.put(API_URL + `update-money/${userId}`, money);
+  }
 }
