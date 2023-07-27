@@ -15,6 +15,7 @@ import { ColonieComponent } from './components/colonie/colonie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
+import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RessourceModalComponent } from './components/ressource-modal/ressource-
     ContactComponent,
     ColonieComponent,
     RessourceModalComponent,
+    MiniMenuComponent,
   ],
   imports: [
     BrowserModule,
