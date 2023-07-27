@@ -1,31 +1,45 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Models/User';
 import { Services } from 'src/app/services/Services';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
-export class MenuComponent {
-  private avatar = "../../assets/cowboy1.png"
-  private level = 15;
-  private money = 750;
-  constructor(public service: Services, public router: Router) { }
+
+export class MenuComponent implements OnInit {
+  public currentUser?: User;
+  public isMenuVisible = false;
+
+  constructor(public service: Services, public router: Router, private userService: UserService) { }
+  public toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
+
+  ngOnInit(): void {
+    let username = localStorage.getItem('userName')
+    this.userService.getUserInfo(username, (response: User) => this.currentUser = response)
+  }
 
   public getAvatar() {
-    return this.avatar
+    return this.currentUser?.avatar;
   }
+
   public getLevel() {
-    return this.level
+
+    return this.currentUser?.level
   }
+
   public getMoney() {
-    return this.money
+    return this.currentUser?.money
   }
 
   public logOut() {
     localStorage.setItem('isLoggedIn', 'false');
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
-
 }

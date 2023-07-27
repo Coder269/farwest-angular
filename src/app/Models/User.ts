@@ -5,7 +5,7 @@ export class User {
   colonies?: Colonie[];
   username: string;
   password: string;
-  avatar: string;
+  avatar: string | null | undefined;
   money: number;
   level: number;
 
