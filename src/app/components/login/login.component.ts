@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Models/User';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   public loginError: boolean = false;
   public submited: boolean = false;
-  loginForm = this.formBuilder.group({
+  public loginForm = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
   })
@@ -30,10 +32,13 @@ export class LoginComponent {
       body: JSON.stringify(this.loginForm.value)
     })
       .then(response => {
-        console.log(response)
         if (response.status == 200) {
+          let username = this.loginForm.value.username ? this.loginForm.value.username : ""
+          let userId: number | undefined;
           localStorage.setItem('isLoggedIn', 'true');
-          this.router.navigate(['/menu'])
+          localStorage.setItem('userName', username);
+
+          this.router.navigate(['/menu']);
         }
         else {
           localStorage.setItem('isLoggedIn', 'false');

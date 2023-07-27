@@ -1,15 +1,16 @@
 <div class="allComponent">
     <h2><img src="../../assets/revolver.png" alt="" class="revolverLeft">Create your colony<img
             src="../../assets/revolver.png" alt="" class="revolverRight"></h2>
-    <form action="">
-        <fieldset> <label for="colonyName">Colony Name :</label>
-            <input type="text" id="colonyName">
+    <form action="" (ngSubmit)="onSubmit($event)" [formGroup]="form">
+        <fieldset> <label for=" colonyName">Colony Name :</label>
+            <input type="text" id="colonyName" formControlName="colonyName">
         </fieldset>
 
         <h3> Select your colony :</h3>
         <fieldset class="colonyList">
-            <div *ngFor="let colony of this.service.colonieList">
-                <input type="radio" id={{colony.colonyName}} class="hidden" name="colonyPicture">
+            <div *ngFor="let colony of this.service.colonieList ; let i=index">
+                <input type="radio" id={{colony.colonyName}} class="hidden" formControlName="colonyPicture"
+                    name="colonyPicture" value={{this.service.colonieList[i].colonyPicture}}>
                 <label for={{colony.colonyName}}><img src={{colony.colonyPicture}} alt=""></label>
             </div>
         </fieldset>
@@ -17,8 +18,9 @@
         <h3>Select your avatar :</h3>
         <fieldset class="avatarList">
             <div *ngFor="let avatar of this.service.avatarList; let i=index">
-                <input type="radio" id={{avatar}} class="hidden" name="avatar">
-                <label for={{avatar}}><img src={{avatar}} alt="" class="avatar"></label>
+                <input type="radio" id={{-i}} class="hidden" formControlName="userPicture" name="userPicture"
+                    value={{this.service.avatarList[i]}}>
+                <label for={{-i}}><img src={{avatar}} alt="" class=" avatar"></label>
             </div>
         </fieldset>
 

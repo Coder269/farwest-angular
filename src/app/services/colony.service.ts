@@ -10,14 +10,16 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class ColonyService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   public getAllColonies(): Observable<Colonie[]> {
     return this.httpClient.get<Colonie[]>(API_URL + 'all-colonies');
   }
 
-  public createColony(colony: Colonie): Observable<Colonie> {
-    return this.httpClient.post<Colonie>(API_URL + 'create-colony', colony);
+  public createColony(colony: Colonie, callback: Function): void {
+    this.httpClient.post<Colonie>(API_URL + 'create-colony', colony).subscribe({
+      next: (response) => callback(response)
+    })
   }
 
   public updateColony(colony: Colonie): Observable<Colonie> {
