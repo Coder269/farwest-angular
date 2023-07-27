@@ -5,27 +5,35 @@ import { Services } from 'src/app/services/Services';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent {
-  private avatar = "../../assets/cowboy1.png"
+  private avatar = '../../assets/cowboy1.png';
   private level = 15;
   private money = 750;
-  constructor(public service: Services, public router: Router) { }
+
+  public isMenuVisible = false;
+
+  constructor(public service: Services, public router: Router) {}
+
+  public toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
 
   public getAvatar() {
-    return this.avatar
+    return this.avatar;
   }
+
   public getLevel() {
-    return this.level
+    return this.level;
   }
+
   public getMoney() {
-    return this.money
+    return this.money;
   }
 
   public logOut() {
     localStorage.setItem('isLoggedIn', 'false');
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
-
 }
