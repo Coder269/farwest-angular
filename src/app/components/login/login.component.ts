@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],,
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
 
@@ -21,22 +21,21 @@ export class LoginComponent {
   public submited: boolean = false;
   public loginForm = this.formBuilder.group({
     username: ['', Validators.required],
-    password: ['', Validators.required],,
+    password: ['', Validators.required],
   });;
 
   public onSubmit(event: Event) {
     event.preventDefault();
     this.submited = true;
     fetch('http://localhost:8080/login', {
-      fetch('http://localhost:8080/login', {
-        method: 'post',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',,
-        },
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
 
 
-        body: JSON.stringify(this.loginForm.value)
+      body: JSON.stringify(this.loginForm.value)
     })
       .then(response => {
         if (response.status == 200) {
@@ -45,7 +44,7 @@ export class LoginComponent {
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userName', username);
 
-          this.router.navigate(['/menu']);
+          this.router.navigate(['/main']);
         }
         else {
           localStorage.setItem('isLoggedIn', 'false');
