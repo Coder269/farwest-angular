@@ -39,7 +39,7 @@ export class CreateColonyComponent implements OnInit {
 
     let colonie: Colonie;
     colonie = { colonyName: this.form.value.colonyName, colonyPicture: this.form.value.colonyPicture, user: this.userInfo }
-    this.colonyService.createColony(colonie, () => { this.router.navigate(['/menu']) });
+    this.colonyService.createColony(colonie, () => { this.router.navigate(['/main']) });
 
   }
 
