@@ -33,7 +33,8 @@ export class CreateColonyComponent implements OnInit {
     this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
       user = response
       user.avatar = this.form.value.userPicture;
-      this.userService.updateUser(user);
+      console.log(user)
+      this.userService.updateUser(user, () => { });
     })
 
     let colonie: Colonie;

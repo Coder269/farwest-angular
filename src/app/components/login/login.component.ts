@@ -12,7 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent {
 
 
+
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
+
 
 
   public loginError: boolean = false;
@@ -20,7 +22,7 @@ export class LoginComponent {
   public loginForm = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
-  });
+  });;
 
   public onSubmit(event: Event) {
     event.preventDefault();
@@ -32,6 +34,7 @@ export class LoginComponent {
         'Content-Type': 'application/json',
       },
 
+
       body: JSON.stringify(this.loginForm.value)
     })
       .then(response => {
@@ -41,13 +44,13 @@ export class LoginComponent {
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userName', username);
 
-          this.router.navigate(['/menu']);
+          this.router.navigate(['/main']);
         }
         else {
           localStorage.setItem('isLoggedIn', 'false');
           this.loginError = true;
         }
       })
-    };
-  }
+  };
+}
 
