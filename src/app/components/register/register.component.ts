@@ -13,24 +13,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
-
-  public registerError: boolean = false;
-  public submited: boolean = false;
-
   registerForm = this.formBuilder.group({
-    username: [
-      '',
-      [Validators.required, Validators.minLength(4), Validators.maxLength(15)],
-    ],
+    username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     cpassword: ['', [Validators.required]],
   });
 
-  public addUser(event: Event) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
+
+  onSubmit(event: Event) {
     event.preventDefault();
-    this.submited = true;
+    this.addUser();
+  }
+
+  public addUser() {
     console.log(this.registerForm.value);
 
     fetch('http://localhost:8080/register', {
@@ -43,11 +40,16 @@ export class RegisterComponent {
     }).then((response) => {
       console.log(response);
       if (response.status == 200) {
-        localStorage.setItem('User created', 'true');
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem(
+          'userName',
+          this.registerForm.value.username
+            ? this.registerForm.value.username
+            : ''
+        );
         this.router.navigate(['/create-colony']);
       } else {
-        localStorage.setItem('User not created', 'false');
-        this.registerError = true;
+        localStorage.setItem('isLoggedIn', 'false');
       }
     });
   }
