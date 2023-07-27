@@ -24,12 +24,12 @@ fieldset {
 }
 
 input {
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
 .btn {
   padding: 10px 20px;
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
 }
 
@@ -49,5 +49,5 @@ img {
 
 a {
   color: white;
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
 }

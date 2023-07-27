@@ -1,23 +1,27 @@
+<app-menu></app-menu>
 <div class="allComponent">
-    <h2>Ranking</h2>
-    <div class="podium">
-        <h3>Podium : </h3>
-        <div class="podiumItem first"><img class="icon" src="../../assets/first.png" alt="">
-            <p>{{getBestPlayer()[0]}}</p>
-        </div>
-        <div class="podiumItem second"><img class="icon" src="../../assets/second.png" alt="">
-            <p>{{getBestPlayer()[1]}}</p>
-        </div>
-        <div class="podiumItem third"><img class="icon" src="../../assets/third.png" alt="">
-            <p>{{getBestPlayer()[2]}}</p>
-        </div>
+  <h2>Ranking</h2>
+  <div class="podium">
+    <h3>Podium :</h3>
+    <div class="podiumItem first">
+      <img class="icon" src="../../assets/first.png" alt="" />
+      <p>{{ getBestPlayer()[0] }}</p>
     </div>
+    <div class="podiumItem second">
+      <img class="icon" src="../../assets/second.png" alt="" />
+      <p>{{ getBestPlayer()[1] }}</p>
+    </div>
+    <div class="podiumItem third">
+      <img class="icon" src="../../assets/third.png" alt="" />
+      <p>{{ getBestPlayer()[2] }}</p>
+    </div>
+  </div>
 
-    <ul class="rest">
-        <h3>Rest :</h3>
-        <li class="restItem" *ngFor="let player of getRestPlayer()"><img class="icon" src="../../assets/horseshoe.png"
-                alt="">
-            <p>{{player}}</p>
-        </li>
-    </ul>
+  <ul class="rest">
+    <h3>Rest :</h3>
+    <li class="restItem" *ngFor="let player of getRestPlayer()">
+      <img class="icon" src="../../assets/horseshoe.png" alt="" />
+      <p>{{ player }}</p>
+    </li>
+  </ul>
 </div>
