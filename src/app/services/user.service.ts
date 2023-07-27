@@ -11,16 +11,25 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public getUserInfo(username: string | null, callback: Function): void {
     this.httpClient.get<User>(API_URL + `user-info/${username}`).subscribe({
-      next: response => {
-        callback(response)
+      next: (response) => {
+        callback(response);
       },
-    })
+    });
   }
-  public updateUser(user: User): void {
-    this.httpClient.put<User>(API_URL + `update-user`, user).subscribe({ next: () => { } })
+
+  public updateLevel(userId: number, level: number): Observable<any> {
+    return this.httpClient.put(API_URL + `update-level/${userId}`, level);
+  }
+
+  public updateMoney(userId: number, money: number): Observable<any> {
+    return this.httpClient.put(API_URL + `update-money/${userId}`, money);
+  }
+
+  public updateUser(newUser: User): Observable<User> {
+    return this.httpClient.put<User>(API_URL + 'update-user', newUser);
   }
 }

@@ -8,12 +8,17 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
+
 export class MenuComponent implements OnInit {
   public currentUser?: User;
+  public isMenuVisible = false;
 
   constructor(public service: Services, public router: Router, private userService: UserService) { }
+  public toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
 
   ngOnInit(): void {
     let username = localStorage.getItem('userName')
@@ -22,18 +27,19 @@ export class MenuComponent implements OnInit {
 
   public getAvatar() {
     return this.currentUser?.avatar;
-
   }
+
   public getLevel() {
+
     return this.currentUser?.level
   }
+
   public getMoney() {
     return this.currentUser?.money
   }
 
   public logOut() {
     localStorage.setItem('isLoggedIn', 'false');
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
-
 }
