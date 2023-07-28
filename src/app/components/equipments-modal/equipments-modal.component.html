@@ -1,0 +1,42 @@
+<div class="modalContainer" *ngIf="isVisible">
+  <div class="modalContent">
+    <ng-container *ngIf="equipment === 'Scirie'">
+      <img
+        src="../../../assets/scirie.png"
+        alt="scirie icon"
+        class="equipmentIcon"
+      />
+      <p>Next level</p>
+      <img src="../../../assets/bullet.png" alt="bullet" class="bullet" />
+      <button type="submit" (click)="closeModal()" class="btn">
+        {{ equipment }}<img src="../../../assets/wood.png" />
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="equipment === 'Forge'">
+      <img
+        src="../../../assets/forge.png"
+        alt="forge icon"
+        class="equipmentIcon"
+      />
+      <p>Next level</p>
+      <img src="../../../assets/bullet.png" alt="bullet" class="bullet" />
+      <button type="submit" (click)="closeModal()" class="btn">
+        {{ equipment }}<img src="../../../assets/pig-iron.png" />
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="equipment === 'Mine'">
+      <img
+        src="../../../assets/mine.png"
+        alt="mine icon"
+        class="equipmentIcon"
+      />
+      <p>Next level</p>
+      <img src="../../../assets/bullet.png" alt="bullet" class="bullet" />
+      <button type="submit" (click)="closeModal()" class="btn">
+        {{ equipment }}<img src="../../../assets/gold-ingots.png" />
+      </button>
+    </ng-container>
+  </div>
+</div>

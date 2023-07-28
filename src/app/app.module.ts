@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
+import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
     ColonieComponent,
     RessourceModalComponent,
     MiniMenuComponent,
+    EquipmentsModalComponent,
   ],
   imports: [
     BrowserModule,

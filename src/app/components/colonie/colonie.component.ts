@@ -4,6 +4,7 @@ import { Timer } from 'src/app/interfaces/Timer';
 import { Ressources } from 'src/app/interfaces/ressources';
 import { Colonie } from 'src/app/interfaces/colonie';
 import { RessourceModalComponent } from '../ressource-modal/ressource-modal.component';
+import { EquipmentsModalComponent } from '../equipments-modal/equipments-modal.component';
 
 @Component({
   selector: 'app-colonie',
@@ -41,7 +42,8 @@ export class ColonieComponent implements OnInit {
     this.service.timer(this.recolt.gold, this.timer.gold);
   }
 
-  @ViewChild(RessourceModalComponent) RessourceModal?: RessourceModalComponent;
+  @ViewChild(RessourceModalComponent)
+  RessourceModal?: RessourceModalComponent;
 
   openWoodModal() {
     if (this.RessourceModal) {
@@ -61,6 +63,30 @@ export class ColonieComponent implements OnInit {
     if (this.RessourceModal) {
       this.RessourceModal.resource = 'Gold';
       this.RessourceModal.openModal();
+    }
+  }
+
+  @ViewChild(EquipmentsModalComponent)
+  EquipmentsModal?: EquipmentsModalComponent;
+
+  openScirieModal() {
+    if (this.EquipmentsModal) {
+      this.EquipmentsModal.equipment = 'Wood';
+      this.EquipmentsModal.openModal();
+    }
+  }
+
+  openForgeModal() {
+    if (this.EquipmentsModal) {
+      this.EquipmentsModal.equipment = 'Iron';
+      this.EquipmentsModal.openModal();
+    }
+  }
+
+  openMineModal() {
+    if (this.EquipmentsModal) {
+      this.EquipmentsModal.equipment = 'Gold';
+      this.EquipmentsModal.openModal();
     }
   }
 }

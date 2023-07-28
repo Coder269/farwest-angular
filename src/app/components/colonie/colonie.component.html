@@ -43,7 +43,7 @@
         class="icon"
         (click)="openWoodModal()"
       />
-      <p></p>
+      <p>{{ ressources }}</p>
     </li>
     <li class="ressourcesItem">
       <img
@@ -52,7 +52,7 @@
         class="icon"
         (click)="openIronModal()"
       />
-      <p></p>
+      <p>{{ ressources }}</p>
     </li>
     <li class="ressourcesItem">
       <img
@@ -61,10 +61,10 @@
         class="icon"
         (click)="openGoldModal()"
       />
-      <p></p>
+      <p>{{ ressources }}</p>
     </li>
   </ul>
-  <h4>Select ressources to unlock :</h4>
+  <h3>Select ressources to unlock :</h3>
   <ul class="ressources unclock">
     <li class="ressourcesItem">
       <input
@@ -106,8 +106,37 @@
       </p>
     </li>
   </ul>
+
+  <h3>Equipments :</h3>
+  <ul class="equipments">
+    <li class="equipmentItem">
+      <img
+        src="../../../assets/scirie.png"
+        alt="scirie"
+        class="icon"
+        (click)="openScirieModal()"
+      />
+    </li>
+    <li class="equipmentItem">
+      <img
+        src="../../../assets/forge.png"
+        alt="forge"
+        class="icon"
+        (click)="openForgeModal()"
+      />
+    </li>
+    <li class="equipmentItem">
+      <img
+        src="../../../assets/mine.png"
+        alt="mine"
+        class="icon"
+        (click)="openMineModal()"
+      />
+    </li>
+  </ul>
 </div>
 
 <app-ressource-modal></app-ressource-modal>
+<app-equipments-modal></app-equipments-modal>
 
 <app-mini-menu class="miniMenu"></app-mini-menu>
