@@ -1,18 +1,26 @@
 .allComponent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
 }
 
 .avatar {
-    width: 60%;
+  width: 60%;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 a {
-    color: white;
+  color: white;
+}
+
+.miniMenu {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 1rem;
 }

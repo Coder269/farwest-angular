@@ -72,3 +72,8 @@ h4 {
 .disabled {
   background-color: gray;
 }
+.miniMenu {
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 1rem;
+}
