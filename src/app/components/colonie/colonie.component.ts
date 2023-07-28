@@ -47,7 +47,6 @@ export class ColonieComponent implements OnInit {
     if (this.RessourceModal) {
       this.RessourceModal.resource = 'Wood';
       this.RessourceModal.openModal();
-      console.log('wood');
     }
   }
 
