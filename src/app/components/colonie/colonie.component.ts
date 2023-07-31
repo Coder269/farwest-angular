@@ -3,6 +3,9 @@ import { Services } from 'src/app/services/Services';
 import { Timer } from 'src/app/interfaces/Timer';
 import { Ressources } from 'src/app/interfaces/ressources';
 import { Colonie } from 'src/app/interfaces/colonie';
+import { ColonyService } from 'src/app/services/colony.service';
+import { RessourceService } from 'src/app/services/ressource.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-colonie',
@@ -17,14 +20,15 @@ export class ColonieComponent implements OnInit {
   public timer!: { wood: Timer, iron: Timer, gold: Timer }
 
 
-  constructor(private service: Services) {
+  constructor(private service: Services, private colonyService: ColonyService, private ressource: RessourceService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.colonie = {
-      colonyName: "Valey Hill",
-      colonyPicture: "../../assets/village1.jpg"
-    } //requette a faire
+
+    // let coloniyId: number
+    // this.colonyService.getColonieById(coloniyId, (response: Colonie) => this.colonie = response)
+
+
     this.ressources
     this.recolt = {
       wood: this.service.addSeconds(new Date(), 30),
