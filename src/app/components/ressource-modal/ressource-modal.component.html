@@ -3,7 +3,7 @@
     <ng-container *ngIf="type === 'Wood'" class="woodContainer">
       <img src="../../../assets/wood.png" alt="wood icon" class="resourceIcon" />
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
-      <p>How many wood do you want to sell ? <br />Max : {{ resource }}</p>
+      <p>How many wood do you want to sell ? <br />Max : {{ resource.wood }}</p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
         <p>{{ resource }}</p>
@@ -18,7 +18,7 @@
 
       <p>
         How many iron do you want to sell ?<br />
-        Max : {{ resource }}
+        Max : {{ resource.iron }}
       </p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
@@ -32,7 +32,7 @@
       <img src="../../../assets/gold-ingots.png" alt="gold icon" class="resourceIcon" />
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
 
-      <p>How many gold do you want to sell ? <br />Max : {{ resource }}</p>
+      <p>How many gold do you want to sell ? <br />Max : {{ resource.gold }}</p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
         <p>{{ resource }}</p>
