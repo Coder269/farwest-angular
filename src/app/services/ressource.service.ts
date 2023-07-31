@@ -10,19 +10,23 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class RessourceService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  public createRessource(ressource: Ressources): Observable<Ressources> {
-    return this.httpClient.post<Ressources>(
+  public createRessource(ressource: Ressources, callback: Function): void {
+    this.httpClient.post<Ressources>(
       API_URL + 'create-ressource',
       ressource
-    );
+    ).subscribe({
+      next: (response: Ressources) => callback(response)
+    });
   }
 
-  public getRessourceOfColony(colonyId: number): Observable<Ressources> {
-    return this.httpClient.get<Ressources>(
+  public getRessourceOfColony(colonyId: number, callback: Function): void {
+    this.httpClient.get<Ressources>(
       API_URL + `get-ressource/${colonyId}`
-    );
+    ).subscribe({
+      next: (response: Ressources) => callback(response)
+    })
   }
 
   public updateCowboys(
