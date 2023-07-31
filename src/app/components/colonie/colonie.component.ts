@@ -25,7 +25,7 @@ export class ColonieComponent implements OnInit {
     private colonyService: ColonyService,
     private ressourceService: RessourceService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     let colonyId = this.route.snapshot.paramMap.get('id');
@@ -64,21 +64,21 @@ export class ColonieComponent implements OnInit {
 
   openWoodModal() {
     if (this.RessourceModal) {
-      this.RessourceModal.resource = 'Wood';
+      this.RessourceModal.type = 'Wood';
       this.RessourceModal.openModal();
     }
   }
 
   openIronModal() {
     if (this.RessourceModal) {
-      this.RessourceModal.resource = 'Iron';
+      this.RessourceModal.type = 'Iron';
       this.RessourceModal.openModal();
     }
   }
 
   openGoldModal() {
     if (this.RessourceModal) {
-      this.RessourceModal.resource = 'Gold';
+      this.RessourceModal.type = 'Gold';
       this.RessourceModal.openModal();
     }
   }
