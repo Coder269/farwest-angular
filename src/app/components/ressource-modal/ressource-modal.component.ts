@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
+import { Ressources } from 'src/app/interfaces/ressources';
 
 @Component({
   selector: 'app-ressource-modal',
@@ -6,11 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./ressource-modal.component.css'],
 })
 export class RessourceModalComponent {
-  @Input() resource: string;
+  @Input() resource?: Ressources;
   isVisible = false;
+  type?: string;
 
   constructor() {
-    this.resource = '';
   }
 
   openModal() {
