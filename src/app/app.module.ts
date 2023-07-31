@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
 import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EquipmentsModalComponent } from './components/equipments-modal/equipmen
     RessourceModalComponent,
     MiniMenuComponent,
     EquipmentsModalComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
