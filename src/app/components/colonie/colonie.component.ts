@@ -71,21 +71,21 @@ export class ColonieComponent implements OnInit {
 
   openScirieModal() {
     if (this.EquipmentsModal) {
-      this.EquipmentsModal.equipment = 'Wood';
+      this.EquipmentsModal.equipment = 'SawMill';
       this.EquipmentsModal.openModal();
     }
   }
 
   openForgeModal() {
     if (this.EquipmentsModal) {
-      this.EquipmentsModal.equipment = 'Iron';
+      this.EquipmentsModal.equipment = 'Forge';
       this.EquipmentsModal.openModal();
     }
   }
 
   openMineModal() {
     if (this.EquipmentsModal) {
-      this.EquipmentsModal.equipment = 'Gold';
+      this.EquipmentsModal.equipment = 'Mine';
       this.EquipmentsModal.openModal();
     }
   }
