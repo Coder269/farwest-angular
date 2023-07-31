@@ -15,19 +15,21 @@ import { ActivatedRoute } from '@angular/router';
 export class ColonieComponent implements OnInit {
 
   public colonie!: Colonie
-  public ressources!: Ressources
+  public ressource!: Ressources
   public recolt!: { wood: Date, iron: Date, gold: Date }
   public timer!: { wood: Timer, iron: Timer, gold: Timer }
 
 
-  constructor(private service: Services, private colonyService: ColonyService, private ressource: RessourceService, private route: ActivatedRoute) {
+  constructor(private service: Services, private colonyService: ColonyService, private ressourceService: RessourceService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    let coloniyId = this.route.snapshot.paramMap.get('id');
-    if (coloniyId) {
-      this.colonyService.getColonieById(parseInt(coloniyId), (response: Colonie) => this.colonie = response)
-
+    let colonyId = this.route.snapshot.paramMap.get('id');
+    if (colonyId) {
+      this.colonyService.getColonieById(parseInt(colonyId), (response: Colonie) => this.colonie = response)
+      this.ressourceService.getRessourceOfColony(parseInt(colonyId), (response: Ressources) => {
+        this.ressource = response
+      })
     }
 
     this.recolt = {
