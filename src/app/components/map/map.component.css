@@ -1,8 +1,39 @@
 .mapContainer {
   background: url("../../../assets/map.png") no-repeat;
   background-size: cover;
-  display: flex;
-  justify-content: center;
+  background-position: 40% 50%;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 1.2em;
+}
+.colonyPicture {
+  width: 4rem;
+  border-radius: 40px;
+}
+
+.displayColoniesContainer {
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.colony {
+  text-align: center;
+  margin: 10px; /* Ajoute une marge pour espacer les colonies */
+}
+
+.miniMenu {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 1rem;
 }
