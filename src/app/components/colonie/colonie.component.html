@@ -1,11 +1,12 @@
 <app-menu></app-menu>
 <div class="allComponent">
-  <h2>colony name</h2>
+  <h2>{{ colonie.colonyName }}</h2>
   <img [src]="colonie.colonyPicture" alt="" class="colonyPicture" />
 
-  <p>cowboys.</p>
+  <p>cowboys : {{ ressource.numberOfCowboy }}</p>
   <ul class="buyCowboy">
     <h3>Buy cowboys :</h3>
+
     <li class="buyCowboyItem">
       <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input
         type="button"
@@ -43,7 +44,7 @@
         class="icon"
         (click)="openWoodModal()"
       />
-      <p>{{ ressources }}</p>
+      <p>{{ ressource }}</p>
     </li>
     <li class="ressourcesItem">
       <img
@@ -52,7 +53,7 @@
         class="icon"
         (click)="openIronModal()"
       />
-      <p>{{ ressources }}</p>
+      <p>{{ ressource }}</p>
     </li>
     <li class="ressourcesItem">
       <img
@@ -61,7 +62,7 @@
         class="icon"
         (click)="openGoldModal()"
       />
-      <p>{{ ressources }}</p>
+      <p>{{ ressource }}</p>
     </li>
   </ul>
   <h3>Select ressources to unlock :</h3>

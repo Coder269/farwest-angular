@@ -5,11 +5,11 @@
   <img [src]="avatar" alt="" class="avatar" />
   <h3>Your colonies :</h3>
   <ul>
-    <li *ngFor="let colony of this.service.colonieList">
-      <a href="">{{ colony.colonyName }}</a>
+    <li *ngFor="let colony of this.colonyList">
+      <a href="" [routerLink]="['/colonie/' + colony.id]">{{
+        colony.colonyName
+      }}</a>
       <div class="warning"></div>
     </li>
   </ul>
 </div>
-
-<app-mini-menu class="miniMenu"></app-mini-menu>

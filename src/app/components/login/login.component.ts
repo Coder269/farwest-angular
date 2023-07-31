@@ -36,12 +36,21 @@ export class LoginComponent {
       body: JSON.stringify(this.loginForm.value),
     }).then((response) => {
       if (response.status == 200) {
-        let username = this.loginForm.value.username
-          ? this.loginForm.value.username
-          : '';
-        let userId: number | undefined;
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('userName', username);
+        let username = this.loginForm.value.username;
+        let userInfo: User;
+        if (username) {
+          this.userService.getUserInfo(username, (response: User) => {
+            userInfo = response;
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userName', userInfo.username);
+            localStorage.setItem(
+              'userId',
+              userInfo.id?.toString() ? userInfo.id?.toString() : ''
+            );
+
+            console.log(response.id);
+          });
+        }
 
         this.router.navigate(['/main']);
       } else {
