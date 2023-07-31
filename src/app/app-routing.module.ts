@@ -56,7 +56,7 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'colonie',
+    path: 'colonie/:id',
     component: ColonieComponent,
     canActivate: [authGuard]
   }
