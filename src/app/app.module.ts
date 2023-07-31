@@ -14,6 +14,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
+import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
+import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     RankingComponent,
     ContactComponent,
     ColonieComponent,
+    RessourceModalComponent,
+    MiniMenuComponent,
+    EquipmentsModalComponent,
   ],
   imports: [
     BrowserModule,

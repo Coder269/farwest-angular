@@ -1,12 +1,15 @@
+<app-menu></app-menu>
+
 <div class="allComponent">
-    <h2>My assets</h2>
-    <img [src]="avatar" alt="" class="avatar">
-    <h3>Your colonies : </h3>
-    <ul>
-        <li *ngFor="let colony of this.colonyList">
-            <a href="" [routerLink]="['/colonie/'+colony.id]">{{colony.colonyName}}</a>
-            <div class="warning">
-            </div>
-        </li>
-    </ul>
+  <h2>My assets</h2>
+  <img [src]="avatar" alt="" class="avatar" />
+  <h3>Your colonies :</h3>
+  <ul>
+    <li *ngFor="let colony of this.colonyList">
+      <a href="" [routerLink]="['/colonie/' + colony.id]">{{
+        colony.colonyName
+      }}</a>
+      <div class="warning"></div>
+    </li>
+  </ul>
 </div>
