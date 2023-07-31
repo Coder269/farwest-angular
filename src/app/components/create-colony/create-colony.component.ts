@@ -20,7 +20,13 @@ export class CreateColonyComponent implements OnInit {
   constructor(public service: Services, private userService: UserService, private colonyService: ColonyService, private ressourceService: RessourceService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => this.userInfo = response)
+    this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
+      if (response.avatar != null) {
+        this.router.navigate(['main'])
+      }
+      this.userInfo = response
+
+    })
   }
 
   public form = this.formBuilder.group({

@@ -14,7 +14,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserService
-  ) {}
+  ) { }
 
   public loginError: boolean = false;
   public submited: boolean = false;
@@ -47,14 +47,23 @@ export class LoginComponent {
               'userId',
               userInfo.id?.toString() ? userInfo.id?.toString() : ''
             );
-
-            console.log(response.id);
           });
+          this.userService.getUserInfo(username, (response: User) => {
+            if (response.avatar == null) {
+              this.router.navigate(['/create-colony']);
+            }
+            else {
+              this.router.navigate(['/main'])
+            }
+          })
+
         }
 
-        this.router.navigate(['/main']);
+
+
+
+
       } else {
-        localStorage.setItem('isLoggedIn', 'false');
         this.loginError = true;
       }
     });

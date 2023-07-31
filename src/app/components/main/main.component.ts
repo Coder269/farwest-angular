@@ -21,7 +21,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => { this.avatar = response.avatar })
-
     this.colonyService.getColoniesOfUser(parseInt(localStorage.getItem('userId')!), (response: Array<Colonie>) => {
       this.colonyList = response
       console.log(this.colonyList)
