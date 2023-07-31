@@ -24,12 +24,12 @@ export class ColonieComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let coloniyId = this.route.snapshot.paramMap.get('id');
+    if (coloniyId) {
+      this.colonyService.getColonieById(parseInt(coloniyId), (response: Colonie) => this.colonie = response)
 
-    // let coloniyId: number
-    // this.colonyService.getColonieById(coloniyId, (response: Colonie) => this.colonie = response)
+    }
 
-
-    this.ressources
     this.recolt = {
       wood: this.service.addSeconds(new Date(), 30),
       iron: this.service.addSeconds(new Date(), 1800),
@@ -48,4 +48,8 @@ export class ColonieComponent implements OnInit {
   }
 }
 
+
+function log(colonie: Colonie) {
+  throw new Error('Function not implemented.');
+}
 

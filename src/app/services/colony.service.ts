@@ -35,6 +35,6 @@ export class ColonyService {
   }
 
   public getColonieById(id: number, callback: Function) {
-    this.httpClient.get<Colonie>(API_URL + `colonie/${id}`).subscribe({ next: (response: Colonie) => callback(response) })
+    this.httpClient.get<Colonie>(API_URL + `colony/${id}`).subscribe({ next: (response: Colonie) => callback(response) })
   }
 }
