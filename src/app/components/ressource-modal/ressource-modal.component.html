@@ -2,6 +2,7 @@
   <div class="modalContent">
     <ng-container *ngIf="type === 'Wood'" class="woodContainer">
       <img src="../../../assets/wood.png" alt="wood icon" class="resourceIcon" />
+      <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
       <p>How many wood do you want to sell ? <br />Max : {{ resource }}</p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
@@ -13,6 +14,8 @@
 
     <ng-container *ngIf="type === 'Iron'">
       <img src="../../../assets/pig-iron.png" alt="iron icon" class="resourceIcon" />
+      <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
+
       <p>
         How many iron do you want to sell ?<br />
         Max : {{ resource }}
@@ -27,6 +30,8 @@
 
     <ng-container *ngIf="type === 'Gold'">
       <img src="../../../assets/gold-ingots.png" alt="gold icon" class="resourceIcon" />
+      <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
+
       <p>How many gold do you want to sell ? <br />Max : {{ resource }}</p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
