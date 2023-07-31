@@ -2,7 +2,14 @@
   <h2>Colonies to Conquer</h2>
 
   <div class="displayColoniesContainer">
-    <div *ngIf=""></div>
+    <div class="colony" *ngFor="let colony of randomColonies">
+      <img
+        [src]="colony.colonyPicture"
+        alt="Colony Image"
+        class="colonyPicture"
+      />
+      <h3>{{ colony.colonyName }}</h3>
+    </div>
   </div>
 </div>
 

@@ -82,11 +82,11 @@ h4 {
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .miniMenu {
-  position: sticky;
+  position: fixed;
   width: 100%;
   bottom: 0;
   margin-bottom: 1rem;
