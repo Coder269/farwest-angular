@@ -6,6 +6,12 @@
         alt="wood icon"
         class="resourceIcon"
       />
+      <img
+        src="../../../assets/close.png"
+        alt="cross to close modal"
+        class="close"
+        (click)="closeModal()"
+      />
       <p>How many wood do you want to sell ? <br />Max : {{ resource }}</p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
@@ -25,6 +31,13 @@
         alt="iron icon"
         class="resourceIcon"
       />
+      <img
+        src="../../../assets/close.png"
+        alt="cross to close modal"
+        class="close"
+        (click)="closeModal()"
+      />
+
       <p>
         How many iron do you want to sell ?<br />
         Max : {{ resource }}
@@ -47,6 +60,13 @@
         alt="gold icon"
         class="resourceIcon"
       />
+      <img
+        src="../../../assets/close.png"
+        alt="cross to close modal"
+        class="close"
+        (click)="closeModal()"
+      />
+
       <p>How many gold do you want to sell ? <br />Max : {{ resource }}</p>
       <input type="text" placeholder="1000" />
       <div class="priceToSell">
