@@ -14,11 +14,11 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
-import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 import { MapComponent } from './components/map/map.component';
 import { AttackComponent } from './components/attack/attack.component';
+import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
+import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +32,11 @@ import { AttackComponent } from './components/attack/attack.component';
     RankingComponent,
     ContactComponent,
     ColonieComponent,
-    RessourceModalComponent,
     MiniMenuComponent,
-    EquipmentsModalComponent,
     MapComponent,
     AttackComponent,
+    EquipmentsModalComponent,
+    RessourceModalComponent,
   ],
   imports: [
     BrowserModule,
