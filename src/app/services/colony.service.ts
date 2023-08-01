@@ -30,9 +30,12 @@ export class ColonyService {
     return this.httpClient.delete(API_URL + `delete-colony/${id}`);
   }
 
-  public getColoniesOfUser(id: number): Observable<Colonie[]> {
-    return this.httpClient.get<Colonie[]>(API_URL + `colonies-user/${id}`);
+  public getColoniesOfUser(id: number, callback: Function) {
+    return this.httpClient
+      .get<Colonie[]>(API_URL + `colonies-user/${id}`)
+      .subscribe({ next: (response: Colonie[]) => callback(response) });
   }
+
   public getColonieById(id: number, callback: Function) {
     this.httpClient
       .get<Colonie>(API_URL + `colony/${id}`)
