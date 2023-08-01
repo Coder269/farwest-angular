@@ -18,6 +18,7 @@ import { RessourceModalComponent } from './components/ressource-modal/ressource-
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
 import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 import { MapComponent } from './components/map/map.component';
+import { AttackComponent } from './components/attack/attack.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MapComponent } from './components/map/map.component';
     MiniMenuComponent,
     EquipmentsModalComponent,
     MapComponent,
+    AttackComponent,
   ],
   imports: [
     BrowserModule,
