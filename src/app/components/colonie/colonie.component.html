@@ -40,7 +40,7 @@
     <li class="ressourcesItem">
       <input type="button" name="" id="" class="btn unlockBtn"
         [ngClass]="{ disabled: timer.wood.hours + timer.wood.minutes > 0 }" value="Wood" />
-      <p *ngIf="timer.wood.hours + timer.wood.minutes > 0">
+      <p *ngIf="timer.wood.hours + timer.wood.minutes > 0 || true">
         {{ timer.wood.hours }}h{{ timer.wood.minutes }}min
       </p>
     </li>

@@ -19,33 +19,31 @@ export class Services {
   ) { }
 
   //update the count down in every 1 second
-  public timer(dateToReach: Date, timer: Timer) {
+  public timer(date: number, timer: Timer, nbSec: number) {
+    date = date + nbSec * 1000;
     setInterval(function () {
       // get the today's date and time
-      var now = new Date().getTime();
+      let now = new Date().getTime();
+
 
       //find the difference b/w countDown and now
-      var diff = dateToReach.getTime() - now;
+      let diff = date - now;
 
       //now we are calculating time in days, hrs, minutes, and seconds.
-      timer.days = Math.floor(diff / (1000 * 60 * 60 * 24)); //days
+      timer.days = Math.floor(diff / (3600 * 24 * 1000)); //days
       timer.hours = Math.floor(
-        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        (diff % (3600 * 24 * 1000)) / (1000 * 60 * 60)
       ); //hrs
 
       timer.minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); //min,
       //console.log(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
       timer.seconds = Math.floor((diff % (1000 * 60)) / 1000); //sec
-
+      console.log(timer)
       //now output the result in an element with id ="time"
     }, 1000);
   }
-  public addSeconds(date: Date, nbSeconds: number): Date {
-    let dateModified: Date = new Date();
-    dateModified.setTime(date.getTime() + nbSeconds * 1000);
-    return dateModified;
-  }
-  public colonieList: Array<Colonie> = [
+
+  public colonieList: Array<{ colonyName: String, colonyPicture: String }> = [
     { colonyName: 'colony 1', colonyPicture: `../../assets/village1.jpg` },
     { colonyName: 'colony 2', colonyPicture: `../../assets/village2.jpg` },
     { colonyName: 'colony 3', colonyPicture: `../../assets/village3.jpg` },
@@ -76,8 +74,8 @@ export class Services {
     return status;
   }
 
-  public getRandomColonies(count: number): Colonie[] {
-    const randomColonies: Colonie[] = [];
+  public getRandomColonies(count: number): Array<{ colonyName: String, colonyPicture: String }> {
+    const randomColonies = new Array<{ colonyName: String, colonyPicture: String }>;
     const allColonies = this.colonieList.slice();
 
     while (randomColonies.length < count && allColonies.length > 0) {

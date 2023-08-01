@@ -10,7 +10,30 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class RessourceService {
+  private tools = {
+    sawMill: {
+      returnProductivity(level: number) {
+        return level
+      },
+      returnLvlUpCost(level: number) {
+        return Math.exp(level)
+      },
+      lvlUp(level: number, ressource: Ressources) {
+        let ressourceService!: RessourceService;
+        if (ressource.id) {
+          ressourceService.updateSawmill(ressource.id, level + 1)
+        }
+      }
+    }
+  }
+
+
+
+
+
   constructor(private httpClient: HttpClient) { }
+
+
 
   public createRessource(ressource: Ressources, callback: Function): void {
     this.httpClient.post<Ressources>(
@@ -55,11 +78,11 @@ export class RessourceService {
   public updateSawmill(
     ressourceId: number,
     nbSawmill: number
-  ): Observable<any> {
-    return this.httpClient.put(
+  ): void {
+    this.httpClient.put(
       API_URL + `update-sawmill/${ressourceId}`,
       nbSawmill
-    );
+    ).subscribe({})
   }
 
   public updateForge(ressourceId: number, nbForge: number): Observable<any> {

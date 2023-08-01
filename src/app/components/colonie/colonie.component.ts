@@ -20,11 +20,12 @@ import { ColonyService } from 'src/app/services/colony.service';
   styleUrls: ['./colonie.component.css'],
 })
 export class ColonieComponent implements OnInit {
-  public colonie: Colonie = {}
-  public ressource: Ressources = {}
-  public recolt!: { wood: Date; iron: Date; gold: Date };
+  public colonie!: Colonie;
+  public ressource!: Ressources;
+  public recolt!: { wood: number; iron: number; gold: number };
   public timer!: { wood: Timer; iron: Timer; gold: Timer };
   public user: User = {};
+  private colonyId!: string | null;
 
   constructor(
     private service: Services,
@@ -36,22 +37,8 @@ export class ColonieComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.colonyId = this.route.snapshot.paramMap.get('id');
     this.updateAllQueries();
-
-    this.recolt = {
-      wood: this.service.addSeconds(new Date(), 30),
-      iron: this.service.addSeconds(new Date(), 1800),
-      gold: this.service.addSeconds(new Date(), 3600),
-    }; //requette a faire
-    //on fait les requettes pour definir les dates!!!
-    this.timer = {
-      wood: { days: 0, hours: 1, minutes: 0, seconds: 0 },
-      iron: { days: 0, hours: 1, minutes: 0, seconds: 0 },
-      gold: { days: 0, hours: 1, minutes: 0, seconds: 0 },
-    };
-    this.service.timer(this.recolt.wood, this.timer.wood);
-    this.service.timer(this.recolt.iron, this.timer.iron);
-    this.service.timer(this.recolt.gold, this.timer.gold);
   }
 
   @ViewChild(RessourceModalComponent)
@@ -122,24 +109,33 @@ export class ColonieComponent implements OnInit {
 
           }
         })
-        //verif si assez d'argent
-        //->si oui alors : 
-        //->requette pour ajouter les cowboys dans ressource
-        //->requette pour retirer l'argent
-        //sinon : message d'erreur.
       }
 
     }
   }
   updateAllQueries() {
-    let colonyId = this.route.snapshot.paramMap.get('id');
-    if (colonyId && this.colonyService && this.userService && this.ressourceService) {
+
+    if (this.colonyId && this.colonyService && this.userService && this.ressourceService) {
       this.colonyService.getColonieById(
-        parseInt(colonyId),
-        (response: Colonie) => { this.colonie = response }
+        parseInt(this.colonyId),
+        (response: Colonie) => {
+          console.log(response)
+          this.colonie = response;
+          this.recolt = { wood: this.colonie.woodLastRecolt, iron: this.colonie.ironLastRecolt, gold: this.colonie.goldLastRecolt }
+
+          this.timer = {
+            wood: { days: 0, hours: 1, minutes: 0, seconds: 0 },
+            iron: { days: 0, hours: 1, minutes: 0, seconds: 0 },
+            gold: { days: 0, hours: 1, minutes: 0, seconds: 0 },
+          };
+
+          this.service.timer(this.recolt.wood, this.timer.wood, 3600 * 3);
+          this.service.timer(this.recolt.iron, this.timer.iron, 3600 * 3);
+          this.service.timer(this.recolt.gold, this.timer.gold, 3600 * 3)
+        }
       );
       this.ressourceService.getRessourceOfColony(
-        parseInt(colonyId),
+        parseInt(this.colonyId),
         (response: Ressources) => {
           this.ressource = response;
         }
@@ -158,8 +154,6 @@ export class ColonieComponent implements OnInit {
   }
 
 }
-function log(colonie: Colonie) {
-  throw new Error('Function not implemented.');
-}
+
 
 

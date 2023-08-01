@@ -45,10 +45,10 @@ export class CreateColonyComponent implements OnInit {
     })
 
     let colonie: Colonie;
-    colonie = { colonyName: this.form.value.colonyName, colonyPicture: this.form.value.colonyPicture, user: this.userInfo }
+    colonie = { colonyName: this.form.value.colonyName, colonyPicture: this.form.value.colonyPicture, user: this.userInfo, goldLastRecolt: new Date().getTime(), ironLastRecolt: new Date().getTime(), woodLastRecolt: new Date().getTime(), lastStrike: new Date().getTime() }
     this.colonyService.createColony(colonie, (response: Colonie) => {
 
-      let ressource: Ressources = { wood: 0, iron: 0, gold: 0 };
+      let ressource: Ressources = { wood: 0, iron: 0, gold: 0, sawMill: 1, mine: 1, forge: 1 };
       if (response.id != null) {
         ressource.colony = response;
       }
