@@ -1,7 +1,13 @@
 .allComponent {
+  width: 4rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+}
+
+.moneyPlayer {
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 .menuIcon {
