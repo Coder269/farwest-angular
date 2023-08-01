@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
 import { MapComponent } from './components/map/map.component';
+import { AttackComponent } from './components/attack/attack.component';
 import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 
@@ -33,8 +34,9 @@ import { RessourceModalComponent } from './components/ressource-modal/ressource-
     ColonieComponent,
     MiniMenuComponent,
     MapComponent,
+    AttackComponent,
     EquipmentsModalComponent,
-    RessourceModalComponent
+    RessourceModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,4 +47,4 @@ import { RessourceModalComponent } from './components/ressource-modal/ressource-
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

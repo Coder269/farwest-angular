@@ -11,6 +11,7 @@ import { RankingComponent } from './components/ranking/ranking.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
 import { authGuard } from './core/auth.guard';
 import { MapComponent } from './components/map/map.component';
+import { AttackComponent } from './components/attack/attack.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,11 @@ const routes: Routes = [
   {
     path: 'map',
     component: MapComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'attack',
+    component: AttackComponent,
     canActivate: [authGuard],
   },
   {
