@@ -7,21 +7,18 @@ export class MoneyService {
   private wood = 1;
   private iron = 2;
   private gold = 5;
-  private cowboy = { 1: 50, 5: 200, 10: 350 }
+  private cowboy = {
+    qty: [1, 5, 10],
+    price: [50, 200, 350]
+  }
   constructor() {
 
   }
 
-  public getWood() {
-    return this.wood;
+  public getRessourcesPrices(): Array<number> {
+    return [this.wood, this.iron, this.gold]
   }
-  public getIron() {
-    return this.iron;
-  }
-  public getGold() {
-    return this.gold;
-  }
-  public getCowboy() {
-    return this.cowboy;
+  public getCowBoyPrices() {
+    return this.cowboy
   }
 }

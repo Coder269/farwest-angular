@@ -3,10 +3,13 @@
     <ng-container *ngIf="type === 'Wood'" class="woodContainer">
       <img src="../../../assets/wood.png" alt="wood icon" class="resourceIcon" />
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
-      <p>How many wood do you want to sell ? <br />Max : {{ resource.wood }}</p>
-      <input type="text" placeholder="1000" />
+      <p>How many wood do you want to sell ? <br />Max : {{ resource.wood }}
+        <br>{{this.moneyService.getRessourcesPrices()[0]}} $ per wood
+      </p>
+
+      <input type="text" placeholder="1000" [(ngModel)]="qtyToSell[0]" (ngModelChange)="updatePrices()" />
       <div class="priceToSell">
-        <p>{{ resource }}</p>
+        <p>{{ prices[0] }}</p>
         <img src="../../../assets/money-bag.png" alt="money bag" class="moneyBag" />
       </div>
       <button type="submit" (click)="closeModal()" class="btn">Sell</button>
@@ -18,11 +21,11 @@
 
       <p>
         How many iron do you want to sell ?<br />
-        Max : {{ resource.iron }}
+        Max : {{ resource.iron }}<br>{{this.moneyService.getRessourcesPrices()[1]}} $ per iron
       </p>
-      <input type="text" placeholder="1000" />
+      <input type="text" placeholder="1000" [(ngModel)]="qtyToSell[1]" (ngModelChange)="updatePrices()" />
       <div class="priceToSell">
-        <p>{{ resource }}</p>
+        <p>{{ prices[1] }}</p>
         <img src="../../../assets/money-bag.png" alt="money bag" class="moneyBag" />
       </div>
       <button type="submit" (click)="closeModal()" class="btn">Sell</button>
@@ -32,10 +35,12 @@
       <img src="../../../assets/gold-ingots.png" alt="gold icon" class="resourceIcon" />
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
 
-      <p>How many gold do you want to sell ? <br />Max : {{ resource.gold }}</p>
-      <input type="text" placeholder="1000" />
+      <p>How many gold do you want to sell ? <br />Max : {{ resource.gold }}
+        <br>{{this.moneyService.getRessourcesPrices()[0]}} $ per wood
+      </p>
+      <input type="text" placeholder="1000" [(ngModel)]="qtyToSell[2]" (ngModelChange)="updatePrices()" />
       <div class="priceToSell">
-        <p>{{ resource }}</p>
+        <p>{{ prices[2] }}</p>
         <img src="../../../assets/money-bag.png" alt="money bag" class="moneyBag" />
       </div>
       <button type="submit" (click)="closeModal()" class="btn">Sell</button>
