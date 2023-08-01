@@ -2,7 +2,7 @@
   <h2>Colonies to Conquer</h2>
 
   <div class="displayColoniesContainer">
-    <div class="colony" *ngFor="let colony of randomColonies">
+    <div class="colony" *ngFor="let colony of colonies">
       <img
         [src]="colony.colonyPicture"
         alt="Colony Image"
@@ -11,7 +11,6 @@
       <h3>{{ colony.colonyName }}</h3>
     </div>
   </div>
-
 </div>
 
 <app-mini-menu class="miniMenu"></app-mini-menu>

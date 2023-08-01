@@ -11,7 +11,7 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public getUserInfo(username: string | null, callback: Function): void {
     this.httpClient.get<User>(API_URL + `user-info/${username}`).subscribe({
@@ -30,6 +30,10 @@ export class UserService {
   }
 
   public updateUser(newUser: User, callback: Function): void {
-    this.httpClient.put<User>(API_URL + 'update-user', newUser).subscribe({ next: (response) => { callback(response) } });
+    this.httpClient.put<User>(API_URL + 'update-user', newUser).subscribe({
+      next: (response) => {
+        callback(response);
+      },
+    });
   }
 }
