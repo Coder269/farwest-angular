@@ -12,7 +12,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
 import { MapComponent } from './components/map/map.component';
@@ -43,6 +43,7 @@ import { RessourceModalComponent } from './components/ressource-modal/ressource-
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,24 +8,31 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-
-
   public avatar?: string | null;
-  public colonyList?: Array<Colonie>
+  public colonyList?: Array<Colonie>;
 
-
-  constructor(private service: Services, private userService: UserService, private colonyService: ColonyService) { }
+  constructor(
+    private service: Services,
+    private userService: UserService,
+    private colonyService: ColonyService
+  ) {}
 
   ngOnInit(): void {
-    this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => { this.avatar = response.avatar })
-    this.colonyService.getColoniesOfUser(parseInt(localStorage.getItem('userId')!), (response: Array<Colonie>) => {
-      this.colonyList = response
-      console.log(this.colonyList)
-    })
-
-
+    this.userService.getUserInfo(
+      localStorage.getItem('userName'),
+      (response: User) => {
+        this.avatar = response.avatar;
+      }
+    );
+    this.colonyService.getColoniesOfUser(
+      parseInt(localStorage.getItem('userId')!),
+      (response: Array<Colonie>) => {
+        this.colonyList = response;
+        console.log(this.colonyList);
+      }
+    );
   }
 }

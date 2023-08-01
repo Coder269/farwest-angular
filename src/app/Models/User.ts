@@ -3,11 +3,11 @@ import { Colonie } from '../interfaces/colonie';
 export class User {
   id?: number;
   colonies?: Colonie[];
-  username: string;
-  password: string;
-  avatar: string | null | undefined;
-  money: number;
-  level: number;
+  username?: string;
+  password?: string;
+  avatar?: string | null | undefined;
+  money?: number;
+  level?: number;
 
   constructor(
     username: string,

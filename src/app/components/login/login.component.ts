@@ -42,7 +42,7 @@ export class LoginComponent {
           this.userService.getUserInfo(username, (response: User) => {
             userInfo = response;
             localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('userName', userInfo.username);
+            localStorage.setItem('userName', userInfo.username ? userInfo.username : '');
             localStorage.setItem(
               'userId',
               userInfo.id?.toString() ? userInfo.id?.toString() : ''
