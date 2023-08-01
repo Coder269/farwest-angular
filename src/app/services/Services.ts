@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Timer } from '../interfaces/Timer';
 import { Colonie } from '../interfaces/colonie';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Ressources } from '../interfaces/ressources';
+import { User } from '../Models/User';
+import { ColonyService } from './colony.service';
+import { UserService } from './user.service';
+import { RessourceService } from './ressource.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Services {
-  constructor() {}
+  constructor(
+    public colonyService?: ColonyService,
+    public userService?: UserService,
+    public ressourceService?: RessourceService
+  ) { }
 
   //update the count down in every 1 second
   public timer(dateToReach: Date, timer: Timer) {

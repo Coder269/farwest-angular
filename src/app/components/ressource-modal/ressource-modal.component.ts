@@ -9,7 +9,7 @@ import { MoneyService } from 'src/app/services/money.service';
   styleUrls: ['./ressource-modal.component.css'],
 })
 export class RessourceModalComponent {
-  constructor(private moneyService: MoneyService) {
+  constructor(public moneyService: MoneyService) {
     this.moneyService = moneyService
   }
 
@@ -19,6 +19,8 @@ export class RessourceModalComponent {
 
   public isVisible = false;
   public type?: string;
+  public qtyToSell = [0, 0, 0]
+  public prices = [0, 0, 0]
 
 
   openModal() {
@@ -27,5 +29,14 @@ export class RessourceModalComponent {
 
   closeModal() {
     this.isVisible = false;
+  }
+  getIsVisible() {
+    return this.isVisible;
+  }
+
+  updatePrices() {
+    for (let i = 0; i < this.prices.length; i++) {
+      this.prices[i] = this.qtyToSell[i] * this.moneyService.getRessourcesPrices()[i]
+    }
   }
 }

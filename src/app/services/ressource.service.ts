@@ -31,12 +31,13 @@ export class RessourceService {
 
   public updateCowboys(
     ressourceId: number,
-    nbCowBoys: number
-  ): Observable<any> {
-    return this.httpClient.put(
+    nbCowBoys: number,
+    callback: Function
+  ): void {
+    this.httpClient.put(
       API_URL + `update-cowboy/${ressourceId}`,
       nbCowBoys
-    );
+    ).subscribe({ next: (response) => callback(response) });
   }
 
   public updateWood(ressourceId: number, nbWood: number): Observable<any> {
