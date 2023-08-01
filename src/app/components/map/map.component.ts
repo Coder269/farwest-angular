@@ -1,7 +1,7 @@
-
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Colonie } from 'src/app/interfaces/colonie';
-import { Services } from 'src/app/services/Services';
+import { ColonyService } from 'src/app/services/colony.service';
 
 @Component({
   selector: 'app-map',
@@ -9,11 +9,14 @@ import { Services } from 'src/app/services/Services';
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements OnInit {
-  randomColonies: Colonie[] = [];
+  colonies: Colonie[] = [];
 
-  constructor(private service: Services) {}
+  constructor(private colonyService: ColonyService) {}
 
   ngOnInit() {
-    this.randomColonies = this.service.getRandomColonies(9); //nombre de colonies à afficher
+    this.colonyService.getAllColonies().subscribe({
+      next: (response: Colonie[]) => (this.colonies = response),
+      error: (error: HttpErrorResponse) => console.log(error.message),
+    });
   }
 }

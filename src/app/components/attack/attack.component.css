@@ -1,0 +1,68 @@
+.mainAttackComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.colonyPicture {
+  width: 80%;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.horizontalLine {
+  border-top: 3px solid #a71d23;
+  width: 85%;
+  margin-top: 2rem;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.costCowboy {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.costCowboyImg {
+  width: 2rem;
+  height: 2rem;
+}
+
+p {
+  text-align: center;
+}
+
+.numberCowboy {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+input {
+  width: 4rem;
+  border: none;
+}
+
+.btn {
+  width: 6rem;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.bag {
+  width: 2rem;
+}
+
+.btnAttack {
+  width: 150px;
+  height: 2rem;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  background-color: #a71d24;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
