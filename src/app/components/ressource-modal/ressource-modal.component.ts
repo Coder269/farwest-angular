@@ -13,7 +13,7 @@ export class RessourceModalComponent {
     this.moneyService = moneyService
   }
 
-  @Input() resource: Ressources = { wood: 0, iron: 0, gold: 0, numberOfCowboy: 0 };
+  @Input() resource!: Ressources;
   public sellWoodQty = 0;
 
 
