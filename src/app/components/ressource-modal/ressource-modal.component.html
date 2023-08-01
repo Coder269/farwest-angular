@@ -12,7 +12,7 @@
       <button type="submit" (click)="closeModal()" class="btn">Sell</button>
     </ng-container>
 
-    <ng-container *ngIf="resource === 'Iron'">
+    <ng-container *ngIf="type === 'Iron'">
       <img src="../../../assets/pig-iron.png" alt="iron icon" class="resourceIcon" />
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
 
@@ -28,7 +28,7 @@
       <button type="submit" (click)="closeModal()" class="btn">Sell</button>
     </ng-container>
 
-    <ng-container *ngIf="resource === 'Gold'">
+    <ng-container *ngIf="type === 'Gold'">
       <img src="../../../assets/gold-ingots.png" alt="gold icon" class="resourceIcon" />
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
 
