@@ -1,4 +1,8 @@
 <div class="allComponent">
+  <div class="moneyPlayer">
+    {{ getMoney() }}
+    <img class="icon" src="../../assets/money-bag.png" alt="money bag" />
+  </div>
   <img
     *ngIf="!isMenuVisible"
     src="../../../assets/menu-bar.png"
@@ -13,6 +17,7 @@
     class="closeIcon"
     (click)="toggleMenu()"
   />
+
   <div *ngIf="isMenuVisible" class="menuContent">
     <h2>My assets</h2>
     <img [src]="getAvatar()" alt="" class="avatar" />
@@ -21,7 +26,7 @@
       <h3>
         <div>
           {{ getMoney() }}
-          <img class="icon" src="../../assets/money-bag.png" alt="" />
+          <img class="icon" src="../../assets/money-bag.png" alt="money bag" />
         </div>
       </h3>
     </div>
