@@ -20,13 +20,29 @@
   width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
 }
 
-.costCowboyImg {
+.costCowboyImgCowboy {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+.costCowboyImgEqual {
+  width: 1rem;
+  height: 1rem;
+}
+
+.costCowboyImgBag {
   width: 2rem;
   height: 2rem;
+}
+
+.cowboyCostPrice {
+  font-size: 1.3em;
+  margin-left: 1rem;
 }
 
 p {
@@ -53,6 +69,15 @@ input {
 
 .bag {
   width: 2rem;
+  height: 2rem;
+}
+
+.attackCost {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1.5rem;
 }
 
 .btnAttack {
@@ -65,4 +90,24 @@ input {
   color: white;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 600px) {
+  h2 {
+    font-size: 1.7em;
+  }
+
+  .colonyPicture {
+    width: 25rem;
+  }
+
+  .costCowboy {
+    width: 15%;
+  }
+  .numberCowboy {
+    width: 30%;
+  }
+  .attackCost {
+    width: 20%;
+  }
 }
