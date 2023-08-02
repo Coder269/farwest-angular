@@ -1,4 +1,4 @@
-<app-menu></app-menu>
+<app-menu [currentUser]="user"></app-menu>
 <div class="allComponent">
   <h2>{{ colonie.colonyName }}</h2>
   <img [src]="colonie.colonyPicture" alt="" class="colonyPicture" />
@@ -8,16 +8,19 @@
     <h3>Buy cowboys :</h3>
 
     <li class="buyCowboyItem">
-      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input type="button" name="" id="" class="btn"
-        value="+1 : $50" (click)="buyCowboy(1)" />
+      <img class="icon" src="../../assets/cowboy-hat.png" alt="" />
+      <div class="container"><input [ngClass]="{disabled: user.money!=undefined? user.money<50 :false}" type="button"
+          name="" id="" class="btn" value="+1 : $50" (click)="buyCowboy(1)" /></div>
     </li>
     <li class="buyCowboyItem">
-      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input type="button" name="" id="" class="btn"
-        value="+5 : $200" (click)="buyCowboy(5)" />
+      <img class="icon" src="../../assets/cowboy-hat.png" alt="" />
+      <div class="container"><input [ngClass]="{disabled: user.money!=undefined? user.money<350 :false}" type="button"
+          name="" id="" class="btn" value="+5 : $200" (click)="buyCowboy(5)" /></div>
     </li>
     <li class="buyCowboyItem">
-      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input type="button" name="" id="" class="btn"
-        value="+10 : $350" (click)="buyCowboy(10)" />
+      <img class="icon" src="../../assets/cowboy-hat.png" alt="" />
+      <div class="container"><input [ngClass]="{disabled: user.money!=undefined? user.money<350 :false}" type="button"
+          name="" id="" class="btn" value="+10 : $350" (click)="buyCowboy(10)" /></div>
     </li>
   </ul>
   <h3>Ressources :</h3>
