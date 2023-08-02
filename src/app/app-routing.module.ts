@@ -53,7 +53,7 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'attack',
+    path: 'attack/:id',
     component: AttackComponent,
     canActivate: [authGuard],
   },

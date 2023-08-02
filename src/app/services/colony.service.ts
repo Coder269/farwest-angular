@@ -10,6 +10,8 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class ColonyService {
+  otherColonies: Colonie[] = [];
+
   constructor(private httpClient: HttpClient) {}
 
   public getAllColonies(): Observable<Colonie[]> {
