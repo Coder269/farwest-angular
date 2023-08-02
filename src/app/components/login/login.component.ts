@@ -14,7 +14,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserService
-  ) { }
+  ) {}
 
   public loginError: boolean = false;
   public submited: boolean = false;
@@ -23,8 +23,11 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
+  public isLogin: boolean = false;
+
   public onSubmit(event: Event) {
     event.preventDefault();
+    this.isLogin = true;
     this.submited = true;
     fetch('http://localhost:8080/login', {
       method: 'post',
@@ -36,13 +39,17 @@ export class LoginComponent {
       body: JSON.stringify(this.loginForm.value),
     }).then((response) => {
       if (response.status == 200) {
+        this.isLogin = false;
         let username = this.loginForm.value.username;
         let userInfo: User;
         if (username) {
           this.userService.getUserInfo(username, (response: User) => {
             userInfo = response;
             localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('userName', userInfo.username ? userInfo.username : '');
+            localStorage.setItem(
+              'userName',
+              userInfo.username ? userInfo.username : ''
+            );
             localStorage.setItem(
               'userId',
               userInfo.id?.toString() ? userInfo.id?.toString() : ''
@@ -51,18 +58,11 @@ export class LoginComponent {
           this.userService.getUserInfo(username, (response: User) => {
             if (response.avatar == null) {
               this.router.navigate(['/create-colony']);
+            } else {
+              this.router.navigate(['/main']);
             }
-            else {
-              this.router.navigate(['/main'])
-            }
-          })
-
+          });
         }
-
-
-
-
-
       } else {
         this.loginError = true;
       }

@@ -1,4 +1,7 @@
-<div class="allComponent">
+<div *ngIf="isLogin">
+  <app-loader></app-loader>
+</div>
+<div class="allComponent" *ngIf="!isLogin">
   <img src="../../assets/login_picture.png" alt="" />
   <form (ngSubmit)="onSubmit($event)" [formGroup]="loginForm">
     <fieldset>

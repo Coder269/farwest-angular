@@ -119,7 +119,6 @@ hr {
   background-color: rgb(255, 65, 65);
 }
 
-/* plus sign */
 .sign {
   width: 100%;
   transition-duration: 0.3s;
@@ -135,7 +134,7 @@ hr {
 .sign svg path {
   fill: white;
 }
-/* text */
+
 .text {
   position: absolute;
   right: 0%;
@@ -146,7 +145,7 @@ hr {
   font-weight: 600;
   transition-duration: 0.3s;
 }
-/* hover effect on button width */
+
 .Btn:hover {
   width: 200px;
   border-radius: 40px;
@@ -158,14 +157,14 @@ hr {
   transition-duration: 0.3s;
   padding-left: 20px;
 }
-/* hover effect button's text */
+
 .Btn:hover .text {
   opacity: 1;
   width: 55%;
   transition-duration: 0.3s;
   padding-right: 10px;
 }
-/* button click effect*/
+
 .Btn:active {
   transform: translate(2px, 2px);
 }
