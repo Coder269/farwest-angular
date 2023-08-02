@@ -8,103 +8,52 @@
     <h3>Buy cowboys :</h3>
 
     <li class="buyCowboyItem">
-      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input
-        type="button"
-        name=""
-        id=""
-        class="btn"
-        value="+1 : $50"
-        (click)="buyCowboy(1)"
-      />
+      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input type="button" name="" id="" class="btn"
+        value="+1 : $50" (click)="buyCowboy(1)" />
     </li>
     <li class="buyCowboyItem">
-      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input
-        type="button"
-        name=""
-        id=""
-        class="btn"
-        value="+5 : $200"
-        (click)="buyCowboy(5)"
-      />
+      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input type="button" name="" id="" class="btn"
+        value="+5 : $200" (click)="buyCowboy(5)" />
     </li>
     <li class="buyCowboyItem">
-      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input
-        type="button"
-        name=""
-        id=""
-        class="btn"
-        value="+10 : $350"
-        (click)="buyCowboy(10)"
-      />
+      <img class="icon" src="../../assets/cowboy-hat.png" alt="" /><input type="button" name="" id="" class="btn"
+        value="+10 : $350" (click)="buyCowboy(10)" />
     </li>
   </ul>
   <h3>Ressources :</h3>
   <ul class="ressources">
     <li class="ressourcesItem">
-      <img
-        src="../../assets/wood.png"
-        alt="wood icon"
-        class="icon"
-        (click)="openWoodModal()"
-      />
+      <img src="../../assets/wood.png" alt="wood icon" class="icon" (click)="openWoodModal()" />
       <p>{{ ressource.wood }}</p>
     </li>
     <li class="ressourcesItem">
-      <img
-        src="../../assets/pig-iron.png"
-        alt="iron icon"
-        class="icon"
-        (click)="openIronModal()"
-      />
+      <img src="../../assets/pig-iron.png" alt="iron icon" class="icon" (click)="openIronModal()" />
       <p>{{ ressource.iron }}</p>
     </li>
     <li class="ressourcesItem">
-      <img
-        src="../../assets/gold-ingots.png"
-        alt="gold icon"
-        class="icon"
-        (click)="openGoldModal()"
-      />
+      <img src="../../assets/gold-ingots.png" alt="gold icon" class="icon" (click)="openGoldModal()" />
       <p>{{ ressource.gold }}</p>
     </li>
   </ul>
   <h3>Select ressources to unlock :</h3>
   <ul class="ressources unclock">
     <li class="ressourcesItem">
-      <input
-        type="button"
-        name=""
-        id=""
-        class="btn unlockBtn"
-        [ngClass]="{ disabled: timer.wood.hours + timer.wood.minutes > 0 }"
-        value="Wood"
-      />
-      <p *ngIf="timer.wood.hours + timer.wood.minutes > 0">
+      <input type="button" name="" id="" class="btn unlockBtn"
+        [ngClass]="{ disabled: timer.wood.hours + timer.wood.minutes > 0 }" value="Wood" />
+      <p *ngIf="timer.wood.hours + timer.wood.minutes > 0 || true">
         {{ timer.wood.hours }}h{{ timer.wood.minutes }}min
       </p>
     </li>
     <li class="ressourcesItem">
-      <input
-        type="button"
-        name=""
-        id=""
-        class="btn unlockBtn"
-        [ngClass]="{ disabled: timer.iron.hours + timer.iron.minutes > 0 }"
-        value="Iron"
-      />
+      <input type="button" name="" id="" class="btn unlockBtn"
+        [ngClass]="{ disabled: timer.iron.hours + timer.iron.minutes > 0 }" value="Iron" />
       <p *ngIf="timer.iron.hours + timer.iron.minutes > 0">
         {{ timer.iron.hours }}h{{ timer.iron.minutes }}min
       </p>
     </li>
     <li class="ressourcesItem">
-      <input
-        type="button"
-        name=""
-        id=""
-        class="btn unlockBtn"
-        [ngClass]="{ disabled: timer.gold.hours + timer.gold.minutes > 0 }"
-        value="Gold"
-      />
+      <input type="button" name="" id="" class="btn unlockBtn"
+        [ngClass]="{ disabled: timer.gold.hours + timer.gold.minutes > 0 }" value="Gold" />
       <p *ngIf="timer.gold.hours + timer.gold.minutes > 0">
         {{ timer.gold.hours }}h{{ timer.gold.minutes }}min
       </p>
@@ -114,28 +63,13 @@
   <h3>Equipments :</h3>
   <ul class="equipments">
     <li class="equipmentItem">
-      <img
-        src="../../../assets/scirie.png"
-        alt="scirie"
-        class="icon"
-        (click)="openScirieModal()"
-      />
+      <img src="../../../assets/scirie.png" alt="scirie" class="icon" (click)="openScirieModal()" />
     </li>
     <li class="equipmentItem">
-      <img
-        src="../../../assets/forge.png"
-        alt="forge"
-        class="icon"
-        (click)="openForgeModal()"
-      />
+      <img src="../../../assets/forge.png" alt="forge" class="icon" (click)="openForgeModal()" />
     </li>
     <li class="equipmentItem">
-      <img
-        src="../../../assets/mine.png"
-        alt="mine"
-        class="icon"
-        (click)="openMineModal()"
-      />
+      <img src="../../../assets/mine.png" alt="mine" class="icon" (click)="openMineModal()" />
     </li>
   </ul>
 </div>
