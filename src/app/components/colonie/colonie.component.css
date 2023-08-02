@@ -91,3 +91,9 @@ h4 {
   bottom: 0;
   margin-bottom: 1rem;
 }
+
+@media screen and (min-width: 600px) {
+  .colonyPicture {
+    width: 30rem;
+  }
+}

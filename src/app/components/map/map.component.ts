@@ -39,8 +39,9 @@ export class MapComponent implements OnInit {
   }
 
   getOtherColonies() {
+    this.otherColonies = this.allColonies;
     for (let colony of this.coloniesUser) {
-      this.otherColonies = this.allColonies.filter(
+      this.otherColonies = this.otherColonies.filter(
         (colony2) => colony.id != colony2.id
       );
     }
