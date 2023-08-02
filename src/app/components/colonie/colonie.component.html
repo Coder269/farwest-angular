@@ -23,7 +23,7 @@
           name="" id="" class="btn" value="+10 : $350" (click)="buyCowboy(10)" /></div>
     </li>
   </ul>
-  <h3>Ressources :</h3>
+  <h3>Sell ressources :</h3>
   <ul class="ressources">
     <li class="ressourcesItem">
       <img src="../../assets/wood.png" alt="wood icon" class="icon" (click)="openWoodModal()" />
@@ -41,22 +41,23 @@
   <h3>Select ressources to unlock :</h3>
   <ul class="ressources unclock">
     <li class="ressourcesItem">
-      <input type="button" name="" id="" class="btn unlockBtn"
-        [ngClass]="{ disabled: timer.wood.hours + timer.wood.minutes > 0 }" value="Wood" />
+      <div><input [ngClass]="{ disabled: timer.wood.hours + timer.wood.minutes > 0 }" type="button" name="" id=""
+          class="btn unlockBtn" value="Wood" (click)="recoltRessource('wood')" /></div>
+
       <p *ngIf="timer.wood.hours + timer.wood.minutes > 0 || true">
         {{ timer.wood.hours }}h{{ timer.wood.minutes }}min
       </p>
     </li>
     <li class="ressourcesItem">
-      <input type="button" name="" id="" class="btn unlockBtn"
-        [ngClass]="{ disabled: timer.iron.hours + timer.iron.minutes > 0 }" value="Iron" />
+      <div><input [ngClass]="{ disabled: timer.iron.hours + timer.iron.minutes > 0 }" type="button" name="" id=""
+          class="btn unlockBtn" value="Iron" (click)="recoltRessource('iron')" /></div>
       <p *ngIf="timer.iron.hours + timer.iron.minutes > 0">
         {{ timer.iron.hours }}h{{ timer.iron.minutes }}min
       </p>
     </li>
     <li class="ressourcesItem">
-      <input type="button" name="" id="" class="btn unlockBtn"
-        [ngClass]="{ disabled: timer.gold.hours + timer.gold.minutes > 0 }" value="Gold" />
+      <div><input [ngClass]="{ disabled: timer.gold.hours + timer.gold.minutes > 0 }" type="button" name="" id=""
+          class="btn unlockBtn" value="Gold" (click)="recoltRessource('gold')" /></div>
       <p *ngIf="timer.gold.hours + timer.gold.minutes > 0">
         {{ timer.gold.hours }}h{{ timer.gold.minutes }}min
       </p>
