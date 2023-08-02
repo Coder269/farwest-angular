@@ -7,7 +7,7 @@
     <fieldset>
       <label for="userName">Your name : </label>
       <input id="userName" type="text" formControlName="username" />
-      <div *ngIf="loginForm.controls.username.errors && submited">
+      <div *ngIf="loginForm.controls.username.errors">
         <span *ngIf="loginForm.controls.username.errors?.['required']"
           >User name is required</span
         >
@@ -16,7 +16,7 @@
     <fieldset>
       <label for="password">Password : </label>
       <input type="password" id="password" formControlName="password" />
-      <div *ngIf="loginForm.controls.password.errors && submited">
+      <div *ngIf="loginForm.controls.password.errors">
         <span *ngIf="loginForm.controls.password.errors?.['required']"
           >Password is required.</span
         >
