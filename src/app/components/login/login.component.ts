@@ -43,7 +43,6 @@ export class LoginComponent {
       body: JSON.stringify(this.loginForm.value),
     }).then((response) => {
       if (response.status == 200) {
-        this.isLoading = false;
         let username = this.loginForm.value.username;
         let userInfo: User;
         if (username) {
