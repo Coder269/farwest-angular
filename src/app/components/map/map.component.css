@@ -40,6 +40,11 @@ h2 {
   margin: 10px; /* Ajoute une marge pour espacer les colonies */
 }
 
+.colony:hover {
+  border: solid red;
+  cursor: pointer;
+}
+
 .miniMenu {
   position: fixed;
   width: 100%;

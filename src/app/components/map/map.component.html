@@ -2,7 +2,11 @@
   <h2>Colonies to Conquer</h2>
 
   <div class="displayColoniesContainer">
-    <div class="colony" *ngFor="let colony of otherColonies">
+    <div
+      class="colony"
+      *ngFor="let colony of otherColonies"
+      [routerLink]="['/attack', colony.id]"
+    >
       <img
         [src]="colony.colonyPicture"
         alt="Colony Image"
