@@ -24,6 +24,34 @@ export class RessourceService {
           ressourceService.updateSawmill(ressource.id, level + 1)
         }
       }
+    },
+    forge: {
+      returnProductivity(level: number) {
+        return level
+      },
+      returnLvlUpCost(level: number) {
+        return 5 * Math.exp(level)
+      },
+      lvlUp(level: number, ressource: Ressources) {
+        let ressourceService!: RessourceService;
+        if (ressource.id) {
+          ressourceService.updateSawmill(ressource.id, level + 1)
+        }
+      }
+    },
+    mine: {
+      returnProductivity(level: number) {
+        return level
+      },
+      returnLvlUpCost(level: number) {
+        return 10 * Math.exp(level)
+      },
+      lvlUp(level: number, ressource: Ressources) {
+        let ressourceService!: RessourceService;
+        if (ressource.id) {
+          ressourceService.updateSawmill(ressource.id, level + 1)
+        }
+      }
     }
   }
 
@@ -33,7 +61,9 @@ export class RessourceService {
 
   constructor(private httpClient: HttpClient) { }
 
-
+  public exportTools() {
+    return this.tools;
+  }
 
   public createRessource(ressource: Ressources, callback: Function): void {
     this.httpClient.post<Ressources>(
@@ -63,16 +93,16 @@ export class RessourceService {
     ).subscribe({ next: (response) => callback(response) });
   }
 
-  public updateWood(ressourceId: number, nbWood: number): Observable<any> {
-    return this.httpClient.put(API_URL + `update-wood/${ressourceId}`, nbWood);
+  public updateWood(ressourceId: number, nbWood: number, callback: Function): void {
+    this.httpClient.put(API_URL + `update-wood/${ressourceId}`, nbWood).subscribe({ next: (response) => callback(response) });
   }
 
-  public updateIron(ressourceId: number, nbIron: number): Observable<any> {
-    return this.httpClient.put(API_URL + `update-iron/${ressourceId}`, nbIron);
+  public updateIron(ressourceId: number, nbIron: number, callback: Function): void {
+    this.httpClient.put(API_URL + `update-iron/${ressourceId}`, nbIron).subscribe({ next: (response) => callback(response) });
   }
 
-  public updateGold(ressourceId: number, nbGold: number): Observable<any> {
-    return this.httpClient.put(API_URL + `update-gold/${ressourceId}`, nbGold);
+  public updateGold(ressourceId: number, nbGold: number, callback: Function): void {
+    this.httpClient.put(API_URL + `update-gold/${ressourceId}`, nbGold).subscribe({ next: (response) => callback(response) });
   }
 
   public updateSawmill(
@@ -94,5 +124,9 @@ export class RessourceService {
 
   public updateMine(ressourceId: number, nbMine: number): Observable<any> {
     return this.httpClient.put(API_URL + `update-mine/${ressourceId}`, nbMine);
+  }
+
+  public updateRessources(ressource: Ressources, callback: Function): void {
+    this.httpClient.put(API_URL + "update-ressource/", ressource).subscribe({ next: (response) => callback(response) })
   }
 }

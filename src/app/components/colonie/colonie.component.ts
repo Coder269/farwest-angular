@@ -23,6 +23,7 @@ export class ColonieComponent implements OnInit {
   public colonie!: Colonie;
   public ressource!: Ressources;
   public recolt!: { wood: number; iron: number; gold: number };
+  public ressourceToRecolt!: { wood: number; iron: number; gold: number }
   public timer!: { wood: Timer; iron: Timer; gold: Timer };
   public user!: User;
   private colonyId!: string | null;
@@ -113,6 +114,35 @@ export class ColonieComponent implements OnInit {
 
     }
   }
+
+  recoltRessource(ressource: string) {
+    switch (ressource) {
+      case "wood":
+        if (this.ressource.id && this.timer.wood.hours + this.timer.wood.minutes < 0) {
+          this.ressourceService.updateWood(this.ressource.id, this.ressource.wood + this.ressourceService.exportTools().sawMill.returnProductivity(this.ressource.sawMill), () => {
+            this.colonie.woodLastRecolt = new Date().getTime();
+            this.colonyService.updateColony(this.colonie, () => { this.updateAllQueries() })
+          })
+        }
+        break;
+      case "iron":
+        if (this.ressource.id && this.timer.iron.hours + this.timer.iron.minutes < 0) {
+          this.ressourceService.updateIron(this.ressource.id, this.ressource.iron + this.ressourceService.exportTools().forge.returnProductivity(this.ressource.forge), () => {
+            this.colonie.ironLastRecolt = new Date().getTime();
+            this.colonyService.updateColony(this.colonie, () => { this.updateAllQueries() })
+          })
+        }
+        break;
+      case "gold":
+        if (this.ressource.id && this.timer.gold.hours + this.timer.gold.minutes < 0) {
+          this.ressourceService.updateGold(this.ressource.id, this.ressource.gold + this.ressourceService.exportTools().mine.returnProductivity(this.ressource.mine), () => {
+            this.colonie.goldLastRecolt = new Date().getTime();
+            this.colonyService.updateColony(this.colonie, () => { this.updateAllQueries() })
+          })
+        }
+    }
+  }
+
   updateAllQueries() {
     if (this.colonyId && this.colonyService && this.userService && this.ressourceService) {
       this.colonyService.getColonieById(

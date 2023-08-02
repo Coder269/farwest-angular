@@ -12,7 +12,7 @@ const API_URL = environment.baseApiUrl;
 export class ColonyService {
   otherColonies: Colonie[] = [];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   public getAllColonies(): Observable<Colonie[]> {
     return this.httpClient.get<Colonie[]>(API_URL + 'all-colonies');
@@ -24,8 +24,8 @@ export class ColonyService {
     });
   }
 
-  public updateColony(colony: Colonie): Observable<Colonie> {
-    return this.httpClient.put<Colonie>(API_URL + 'update-colony', colony);
+  public updateColony(colony: Colonie, callback: Function): void {
+    this.httpClient.put<Colonie>(API_URL + 'update-colony', colony).subscribe({ next: (response) => callback(response) });
   }
 
   public deleteColony(id: number): Observable<any> {
