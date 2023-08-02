@@ -45,5 +45,6 @@ export class MapComponent implements OnInit {
         (colony2) => colony.id != colony2.id
       );
     }
+    this.colonyService.otherColonies = this.otherColonies;
   }
 }
