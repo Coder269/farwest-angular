@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColonyService } from 'src/app/services/colony.service';
 import { ActivatedRoute } from '@angular/router';
-import { Ressources } from 'src/app/interfaces/ressources';
 import { Colonie } from 'src/app/interfaces/colonie';
-import { User } from 'src/app/Models/User';
 
 @Component({
   selector: 'app-attack',
