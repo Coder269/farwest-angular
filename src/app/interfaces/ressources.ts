@@ -1,9 +1,9 @@
 import { Colonie } from './colonie';
 
 export interface Ressources {
-  id: number;
-  colony: Colonie;
-  numberOfCowboy: number;
+  id?: number;
+  colony?: Colonie;
+  numberOfCowboy?: number;
   wood: number;
   iron: number;
   gold: number;

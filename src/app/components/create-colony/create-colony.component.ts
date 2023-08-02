@@ -7,6 +7,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ColonyService } from 'src/app/services/colony.service';
 import { Router } from '@angular/router';
+import { RessourceService } from 'src/app/services/ressource.service';
+import { Ressources } from 'src/app/interfaces/ressources';
 
 @Component({
   selector: 'app-create-colony',
@@ -15,10 +17,16 @@ import { Router } from '@angular/router';
 })
 export class CreateColonyComponent implements OnInit {
   private userInfo?: User | undefined;
-  constructor(public service: Services, private userService: UserService, private colonyService: ColonyService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(public service: Services, private userService: UserService, private colonyService: ColonyService, private ressourceService: RessourceService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => this.userInfo = response)
+    this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
+      if (response.avatar != null) {
+        this.router.navigate(['main'])
+      }
+      this.userInfo = response
+
+    })
   }
 
   public form = this.formBuilder.group({
@@ -33,13 +41,20 @@ export class CreateColonyComponent implements OnInit {
     this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
       user = response
       user.avatar = this.form.value.userPicture;
-      console.log(user)
       this.userService.updateUser(user, () => { });
     })
 
     let colonie: Colonie;
-    colonie = { colonyName: this.form.value.colonyName, colonyPicture: this.form.value.colonyPicture, user: this.userInfo }
-    this.colonyService.createColony(colonie, () => { this.router.navigate(['/main']) });
+    colonie = { colonyName: this.form.value.colonyName, colonyPicture: this.form.value.colonyPicture, user: this.userInfo, goldLastRecolt: new Date().getTime(), ironLastRecolt: new Date().getTime(), woodLastRecolt: new Date().getTime(), lastStrike: new Date().getTime() }
+    this.colonyService.createColony(colonie, (response: Colonie) => {
+
+      let ressource: Ressources = { wood: 0, iron: 0, gold: 0, sawMill: 1, mine: 1, forge: 1 };
+      if (response.id != null) {
+        ressource.colony = response;
+      }
+      this.ressourceService.createRessource(ressource, () => { })
+      this.router.navigate(['/main'])
+    });
 
   }
 

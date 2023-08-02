@@ -10,7 +10,7 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class ColonyService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public getAllColonies(): Observable<Colonie[]> {
     return this.httpClient.get<Colonie[]>(API_URL + 'all-colonies');
@@ -18,8 +18,8 @@ export class ColonyService {
 
   public createColony(colony: Colonie, callback: Function): void {
     this.httpClient.post<Colonie>(API_URL + 'create-colony', colony).subscribe({
-      next: (response) => callback(response)
-    })
+      next: (response) => callback(response),
+    });
   }
 
   public updateColony(colony: Colonie): Observable<Colonie> {
@@ -30,7 +30,15 @@ export class ColonyService {
     return this.httpClient.delete(API_URL + `delete-colony/${id}`);
   }
 
-  public getColoniesOfUser(id: number): Observable<Colonie[]> {
-    return this.httpClient.get<Colonie[]>(API_URL + `colonies-user/${id}`);
+  public getColoniesOfUser(id: number, callback: Function) {
+    return this.httpClient
+      .get<Colonie[]>(API_URL + `colonies-user/${id}`)
+      .subscribe({ next: (response: Colonie[]) => callback(response) });
+  }
+
+  public getColonieById(id: number, callback: Function) {
+    this.httpClient
+      .get<Colonie>(API_URL + `colony/${id}`)
+      .subscribe({ next: (response: Colonie) => callback(response) });
   }
 }

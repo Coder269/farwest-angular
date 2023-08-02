@@ -10,29 +10,57 @@ const API_URL = environment.baseApiUrl;
   providedIn: 'root',
 })
 export class RessourceService {
-  constructor(private httpClient: HttpClient) {}
-
-  public createRessource(ressource: Ressources): Observable<Ressources> {
-    return this.httpClient.post<Ressources>(
-      API_URL + 'create-ressource',
-      ressource
-    );
+  private tools = {
+    sawMill: {
+      returnProductivity(level: number) {
+        return level
+      },
+      returnLvlUpCost(level: number) {
+        return Math.exp(level)
+      },
+      lvlUp(level: number, ressource: Ressources) {
+        let ressourceService!: RessourceService;
+        if (ressource.id) {
+          ressourceService.updateSawmill(ressource.id, level + 1)
+        }
+      }
+    }
   }
 
-  public getRessourceOfColony(colonyId: number): Observable<Ressources> {
-    return this.httpClient.get<Ressources>(
+
+
+
+
+  constructor(private httpClient: HttpClient) { }
+
+
+
+  public createRessource(ressource: Ressources, callback: Function): void {
+    this.httpClient.post<Ressources>(
+      API_URL + 'create-ressource',
+      ressource
+    ).subscribe({
+      next: (response: Ressources) => callback(response)
+    });
+  }
+
+  public getRessourceOfColony(colonyId: number, callback: Function): void {
+    this.httpClient.get<Ressources>(
       API_URL + `get-ressource/${colonyId}`
-    );
+    ).subscribe({
+      next: (response: Ressources) => callback(response)
+    })
   }
 
   public updateCowboys(
     ressourceId: number,
-    nbCowBoys: number
-  ): Observable<any> {
-    return this.httpClient.put(
+    nbCowBoys: number,
+    callback: Function
+  ): void {
+    this.httpClient.put(
       API_URL + `update-cowboy/${ressourceId}`,
       nbCowBoys
-    );
+    ).subscribe({ next: (response) => callback(response) });
   }
 
   public updateWood(ressourceId: number, nbWood: number): Observable<any> {
@@ -50,11 +78,11 @@ export class RessourceService {
   public updateSawmill(
     ressourceId: number,
     nbSawmill: number
-  ): Observable<any> {
-    return this.httpClient.put(
+  ): void {
+    this.httpClient.put(
       API_URL + `update-sawmill/${ressourceId}`,
       nbSawmill
-    );
+    ).subscribe({})
   }
 
   public updateForge(ressourceId: number, nbForge: number): Observable<any> {

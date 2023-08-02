@@ -75,3 +75,21 @@ input[type="radio"]:checked + label > img {
   top: 10px;
   box-shadow: none;
 }
+
+@media screen and (min-width: 600px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  input {
+    width: 15rem;
+  }
+
+  img {
+    width: 20rem;
+  }
+
+  .avatar {
+    width: 7rem;
+  }
+}

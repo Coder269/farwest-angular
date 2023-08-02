@@ -10,6 +10,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { ColonieComponent } from './components/colonie/colonie.component';
 import { authGuard } from './core/auth.guard';
+import { MapComponent } from './components/map/map.component';
+import { AttackComponent } from './components/attack/attack.component';
 
 const routes: Routes = [
   {
@@ -28,42 +30,52 @@ const routes: Routes = [
   {
     path: 'create-colony',
     component: CreateColonyComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: 'lost-password',
     component: LostPasswordComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: 'main',
     component: MainComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: 'menu',
     component: MenuComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
+  },
+  {
+    path: 'map',
+    component: MapComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'attack',
+    component: AttackComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'contact',
     component: ContactComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: 'ranking',
     component: RankingComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
-    path: 'colonie',
+    path: 'colonie/:id',
     component: ColonieComponent,
-    canActivate: [authGuard]
-  }
+    canActivate: [authGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

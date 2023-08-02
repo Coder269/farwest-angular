@@ -3,7 +3,7 @@ import { Services } from '../services/Services';
 
 export const authGuard: CanActivateFn = (route, state) => {
   let router = new Router
-  let service: Services = new Services;
+  let service: Services = new Services();
 
   if (service.isLoggedIn()) {
     return true;
