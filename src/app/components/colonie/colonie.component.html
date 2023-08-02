@@ -44,7 +44,7 @@
       <div><input [ngClass]="{ disabled: timer.wood.hours + timer.wood.minutes > 0 }" type="button" name="" id=""
           class="btn unlockBtn" value="Wood" (click)="recoltRessource('wood')" /></div>
 
-      <p *ngIf="timer.wood.hours + timer.wood.minutes > 0 || true">
+      <p *ngIf="timer.wood.hours + timer.wood.minutes > 0">
         {{ timer.wood.hours }}h{{ timer.wood.minutes }}min
       </p>
     </li>
@@ -78,7 +78,7 @@
   </ul>
 </div>
 
-<app-ressource-modal [resource]="ressource"></app-ressource-modal>
+<app-ressource-modal [resource]="ressource" (modalClosed)="modalClosed()"></app-ressource-modal>
 <app-equipments-modal></app-equipments-modal>
 
 <app-mini-menu class="miniMenu"></app-mini-menu>
