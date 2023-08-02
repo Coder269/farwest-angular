@@ -23,12 +23,16 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
-  public isLogin: boolean = false;
+  public isLoading: boolean = false;
 
   public onSubmit(event: Event) {
     event.preventDefault();
-    this.isLogin = true;
+    this.isLoading = true;
     this.submited = true;
+    setTimeout(() => this.loginIn(), 3000);
+  }
+
+  loginIn() {
     fetch('http://localhost:8080/login', {
       method: 'post',
       headers: {
@@ -39,7 +43,7 @@ export class LoginComponent {
       body: JSON.stringify(this.loginForm.value),
     }).then((response) => {
       if (response.status == 200) {
-        this.isLogin = false;
+        this.isLoading = false;
         let username = this.loginForm.value.username;
         let userInfo: User;
         if (username) {
@@ -65,6 +69,7 @@ export class LoginComponent {
         }
       } else {
         this.loginError = true;
+        this.isLoading = false;
       }
     });
   }
