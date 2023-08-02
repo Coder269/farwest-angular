@@ -24,7 +24,7 @@ export class ColonieComponent implements OnInit {
   public ressource!: Ressources;
   public recolt!: { wood: number; iron: number; gold: number };
   public timer!: { wood: Timer; iron: Timer; gold: Timer };
-  public user: User = {};
+  public user!: User;
   private colonyId!: string | null;
 
   constructor(
@@ -114,12 +114,11 @@ export class ColonieComponent implements OnInit {
     }
   }
   updateAllQueries() {
-
     if (this.colonyId && this.colonyService && this.userService && this.ressourceService) {
       this.colonyService.getColonieById(
         parseInt(this.colonyId),
         (response: Colonie) => {
-          console.log(response)
+
           this.colonie = response;
           this.recolt = { wood: this.colonie.woodLastRecolt, iron: this.colonie.ironLastRecolt, gold: this.colonie.goldLastRecolt }
 
