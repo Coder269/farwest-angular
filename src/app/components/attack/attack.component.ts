@@ -16,11 +16,6 @@ export class AttackComponent implements OnInit {
   colonyName: string = '';
   colonyImageUrl: string = '';
 
-  public colonie!: Colonie;
-  public ressource!: Ressources;
-  public user!: User;
-  public money?: number | null;
-
   constructor(
     private colonyService: ColonyService,
     private route: ActivatedRoute
@@ -28,7 +23,9 @@ export class AttackComponent implements OnInit {
 
   ngOnInit(): void {
     this.colonyId = parseInt(this.route.snapshot.params['id']);
+
     this.otherColonies = this.colonyService.otherColonies;
+
     for (let colony of this.otherColonies) {
       if (colony.id === this.colonyId) {
         if (colony.colonyName) this.colonyName = colony.colonyName;
