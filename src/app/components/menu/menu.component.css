@@ -170,6 +170,11 @@ hr {
 }
 
 @media screen and (min-width: 600px) {
+
+  h2 {
+    font-size: 1.4em;
+  }
+
   .stat {
     justify-content: space-around;
     width: 30%;
