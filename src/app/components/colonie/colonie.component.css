@@ -41,13 +41,25 @@
     rgba(0, 0, 0, 0.3) 0px 2px 3px -1px;
 }
 
+.displayRessources {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blockRessources {
+  text-align: center;
+  width: 90%;
+}
+
 .ressources {
   padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .ressourcesItem {
@@ -71,15 +83,14 @@ h4 {
   width: 100px;
 }
 
-
 .equipments {
   padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-evenly;
-  margin-bottom: 5rem;
+  justify-content: space-around;
+  margin-bottom: 7rem;
 }
 
 .miniMenu {
@@ -93,7 +104,19 @@ h4 {
   .colonyPicture {
     width: 30rem;
   }
+  .displayRessources {
+    width: 100%;
+    height: 15rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 7rem;
+  }
 
+  h3 {
+    font-size: 1.4em;
+  }
+  .equipments {
+    margin-top: 2rem;
+  }
 }
-
-

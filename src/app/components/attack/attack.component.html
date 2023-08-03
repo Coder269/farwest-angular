@@ -4,6 +4,16 @@
   <h2>{{ colonyName }}</h2>
   <img [src]="colonyImageUrl" alt="" class="colonyPicture" />
 
+  <div class="redirect">
+    <a [routerLink]="['/map']">
+      <img
+        class="redirectImg"
+        src="../../../assets/arrow.png"
+        alt="back arrow"
+      />
+    </a>
+  </div>
+
   <div class="horizontalLine"></div>
 
   <div class="costCowboy">

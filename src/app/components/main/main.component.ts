@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Models/User';
+import { AudioService } from 'src/app/audio.service';
 import { Colonie } from 'src/app/interfaces/colonie';
 import { Services } from 'src/app/services/Services';
 import { ColonyService } from 'src/app/services/colony.service';
@@ -17,10 +18,13 @@ export class MainComponent implements OnInit {
   constructor(
     private service: Services,
     private userService: UserService,
-    private colonyService: ColonyService
-  ) { }
+    private colonyService: ColonyService,
+    private audioService: AudioService
+  ) {}
 
   ngOnInit(): void {
+    this.audioService.play();
+
     this.userService.getUserInfo(
       localStorage.getItem('userName'),
       (response: User) => {
