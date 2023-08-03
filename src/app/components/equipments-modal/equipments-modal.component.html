@@ -10,7 +10,7 @@
       <p> level: {{this.resource.sawMill+1}}(prod:
         {{this.ressourceService.exportTools().sawMill.returnProductivity(this.resource.sawMill+1)}})</p>
       <button type="submit"
-        [ngClass]="{disabled: ressourceService.exportTools().sawMill.returnLvlUpCost(resource.sawMill) > resource.wood || resource.wood > 0}"
+        [ngClass]="{disabled: ressourceService.exportTools().sawMill.returnLvlUpCost(resource.sawMill) > resource.wood}"
         (click)="this.ressourceService.exportTools().sawMill.lvlUp(resource, ressourceService, router)" class="btn">
         {{ this.ressourceService.exportTools().sawMill.returnLvlUpCost(this.resource.sawMill) }}<img
           src="../../../assets/wood.png" class="icon" />
@@ -27,7 +27,7 @@
       <p> level: {{this.resource.forge+1}}(prod:
         {{this.ressourceService.exportTools().forge.returnProductivity(this.resource.forge+1)}})</p>
       <button type="submit"
-        [ngClass]="{disabled: ressourceService.exportTools().forge.returnLvlUpCost(resource.forge) > resource.iron || resource.iron > 0}"
+        [ngClass]="{disabled: ressourceService.exportTools().forge.returnLvlUpCost(resource.forge) > resource.iron}"
         (click)="this.ressourceService.exportTools().forge.lvlUp(resource, ressourceService, router)" class="btn">
         {{ this.ressourceService.exportTools().forge.returnLvlUpCost(this.resource.forge) }}<img
           src="../../../assets/pig-iron.png" class="icon" />
@@ -44,7 +44,7 @@
       <p> level: {{this.resource.mine+1}}(prod:
         {{this.ressourceService.exportTools().mine.returnProductivity(this.resource.mine+1)}})</p>
       <button type="submit"
-        [ngClass]="{disabled: ressourceService.exportTools().mine.returnLvlUpCost(resource.mine) > resource.gold || resource.gold > 0}"
+        [ngClass]="{disabled: ressourceService.exportTools().mine.returnLvlUpCost(resource.mine) > resource.gold}"
         (click)="this.ressourceService.exportTools().mine.lvlUp(resource, ressourceService, router)" class="btn">
         {{ this.ressourceService.exportTools().mine.returnLvlUpCost(this.resource.mine) }}<img
           src="../../../assets/gold-ingots.png" class="icon" />
