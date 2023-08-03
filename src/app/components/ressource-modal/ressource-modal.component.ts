@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
 import { Ressources } from 'src/app/interfaces/ressources';
 import { MoneyService } from 'src/app/services/money.service';
@@ -23,10 +24,9 @@ export class RessourceModalComponent implements OnInit {
   public prices!: Array<number>
   private user!: User;
 
-  @Output()
-  modalClosed: EventEmitter<string> = new EventEmitter()
 
-  constructor(public moneyService: MoneyService, private userService: UserService, private ressourceService: RessourceService) {
+
+  constructor(public moneyService: MoneyService, private userService: UserService, private ressourceService: RessourceService, private route: Router) {
 
   }
 
@@ -41,7 +41,6 @@ export class RessourceModalComponent implements OnInit {
 
   openModal() {
     this.isVisible = true;
-    this.modalClosed.emit()
   }
 
   closeModal() {
@@ -58,7 +57,6 @@ export class RessourceModalComponent implements OnInit {
   }
 
   sell() {
-    console.log("test");
     let userId = localStorage.getItem("userId")
     console.log(this.type);
     if (userId && this.user.money && this.resource.id) {
@@ -67,8 +65,7 @@ export class RessourceModalComponent implements OnInit {
           if (this.resource.wood >= this.qtyToSell[0]) {
             this.userService.updateMoney(parseInt(userId), this.user.money + this.prices[0], () => { })
             this.ressourceService.updateWood(this.resource.id, this.resource.wood - this.qtyToSell[0], () => { })
-            this.closeModal()
-            this.modalClosed.emit()
+            this.route.navigate(['/colonie/' + this.resource.colony?.id])
           }
 
           break;
@@ -76,8 +73,7 @@ export class RessourceModalComponent implements OnInit {
           if (this.resource.iron >= this.qtyToSell[1]) {
             this.userService.updateMoney(parseInt(userId), this.user.money + this.prices[1], () => { })
             this.ressourceService.updateIron(this.resource.id, this.resource.iron - this.qtyToSell[1], () => { })
-            this.closeModal()
-            this.modalClosed.emit()
+            this.route.navigate(['/colonie/' + this.resource.colony?.id])
           }
 
           break;
@@ -85,9 +81,9 @@ export class RessourceModalComponent implements OnInit {
           if (this.resource.gold >= this.qtyToSell[2]) {
             this.userService.updateMoney(parseInt(userId), this.user.money + this.prices[2], () => { })
             this.ressourceService.updateGold(this.resource.id, this.resource.gold - this.qtyToSell[2], () => { })
-            this.closeModal()
-            this.modalClosed.emit()
+            this.route.navigate(['/colonie/' + this.resource.colony?.id])
           }
+
 
           break;
 

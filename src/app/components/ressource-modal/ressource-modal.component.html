@@ -8,11 +8,12 @@
       </p>
 
       <input type="text" placeholder="1000" [(ngModel)]="qtyToSell[0]" (ngModelChange)="updatePrices()" />
-      <div class="priceToSell">
+      <div class="priceToSell" *ngIf="resource.wood>=qtyToSell[0]">
         <p>{{ prices[0] }}</p>
         <img src="../../../assets/money-bag.png" alt="money bag" class="moneyBag" />
       </div>
-      <button type="submit" (click)="sell()" class="btn">Sell</button>
+      <button type="submit" (click)="sell()" class="btn"
+        [ngClass]="{disabled:(resource.wood<qtyToSell[0])}">Sell</button>
     </ng-container>
 
     <ng-container *ngIf="type === 'Iron'">

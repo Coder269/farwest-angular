@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Ressources } from '../interfaces/ressources';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 const API_URL = environment.baseApiUrl;
 
@@ -13,43 +14,46 @@ export class RessourceService {
   private tools = {
     sawMill: {
       returnProductivity(level: number) {
-        return level
+        return level * 10
       },
-      returnLvlUpCost(level: number) {
-        return Math.exp(level)
+      returnLvlUpCost(currentLevel: number) {
+        return Math.round(Math.exp(currentLevel) / 10) + 10
       },
-      lvlUp(level: number, ressource: Ressources) {
-        let ressourceService!: RessourceService;
-        if (ressource.id) {
-          ressourceService.updateSawmill(ressource.id, level + 1)
+      lvlUp(ressource: Ressources, ressourceService: RessourceService, router: Router) {
+        if (ressource.id && ressourceService.exportTools().sawMill.returnLvlUpCost(ressource.sawMill) <= ressource.wood && ressource.wood > 0) {
+          ressourceService.updateSawmill(ressource.id, ressource.sawMill + 1)
+          ressourceService.updateWood(ressource.id, ressource.wood - this.returnLvlUpCost(ressource.sawMill), () => { })
+          router.navigate(['/colonie/' + ressource.colony?.id])
         }
       }
     },
     forge: {
       returnProductivity(level: number) {
-        return level
+        return level * 5
       },
-      returnLvlUpCost(level: number) {
-        return 5 * Math.exp(level)
+      returnLvlUpCost(currentLevel: number) {
+        return Math.round(Math.exp(currentLevel) / 10) + 10
       },
-      lvlUp(level: number, ressource: Ressources) {
-        let ressourceService!: RessourceService;
-        if (ressource.id) {
-          ressourceService.updateSawmill(ressource.id, level + 1)
+      lvlUp(ressource: Ressources, ressourceService: RessourceService, router: Router) {
+        if (ressource.id && ressourceService.exportTools().forge.returnLvlUpCost(ressource.forge) <= ressource.iron && ressource.iron > 0) {
+          ressourceService.updateForge(ressource.id, ressource.forge + 1)
+          ressourceService.updateIron(ressource.id, ressource.iron - this.returnLvlUpCost(ressource.forge), () => { })
+          router.navigate(['/colonie/' + ressource.colony?.id])
         }
       }
     },
     mine: {
       returnProductivity(level: number) {
-        return level
+        return level * 2
       },
-      returnLvlUpCost(level: number) {
-        return 10 * Math.exp(level)
+      returnLvlUpCost(currentLevel: number) {
+        return Math.round(Math.exp(currentLevel) / 10) + 10
       },
-      lvlUp(level: number, ressource: Ressources) {
-        let ressourceService!: RessourceService;
-        if (ressource.id) {
-          ressourceService.updateSawmill(ressource.id, level + 1)
+      lvlUp(ressource: Ressources, ressourceService: RessourceService, router: Router) {
+        if (ressource.id && ressourceService.exportTools().mine.returnLvlUpCost(ressource.mine) <= ressource.gold && ressource.gold > 0) {
+          ressourceService.updateMine(ressource.id, ressource.mine + 1)
+          ressourceService.updateGold(ressource.id, ressource.gold - this.returnLvlUpCost(ressource.mine), () => { })
+          router.navigate(['/colonie/' + ressource.colony?.id])
         }
       }
     }

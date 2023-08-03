@@ -38,6 +38,10 @@ img {
   border-radius: 10px;
 }
 
+.disabled {
+  background-color: gray;
+}
+
 @media screen and (min-width: 600px) {
   input {
     width: 40%;
