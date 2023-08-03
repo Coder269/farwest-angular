@@ -1,10 +1,10 @@
 <app-menu></app-menu>
 <div class="allComponent">
-  <h2>My assets</h2>
+  <h2>My colonies</h2>
   <img [src]="avatar" alt="" class="avatar" />
   <h3>Your colonies :</h3>
   <ul>
-    <li *ngFor="let colony of this.colonyList">
+    <li *ngFor="let colony of this.colonyList" class="colonies">
       <a href="" [routerLink]="['/colonie/' + colony.id]">{{
         colony.colonyName
       }}</a>

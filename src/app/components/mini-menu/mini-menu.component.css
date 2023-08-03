@@ -23,3 +23,9 @@ ul {
 .icon2 {
   width: 50px;
 }
+
+@media screen and (min-width: 600px) {
+  ul {
+    width: 30%;
+  }
+}

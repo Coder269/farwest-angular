@@ -42,3 +42,17 @@ p {
   bottom: 0;
   margin-bottom: 1rem;
 }
+@media screen and (min-width: 600px) {
+  .displayDesktop {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .onePerson,
+  .onePersonLast {
+    width: 15rem;
+  }
+  p {
+    text-align: justify;
+  }
+}
