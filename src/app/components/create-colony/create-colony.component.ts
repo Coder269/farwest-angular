@@ -21,11 +21,10 @@ export class CreateColonyComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
+      this.userInfo = response
       if (response.avatar != null) {
         this.router.navigate(['main'])
       }
-      this.userInfo = response
-
     })
   }
 
@@ -37,12 +36,17 @@ export class CreateColonyComponent implements OnInit {
 
   public onSubmit(event: Event) {
     event.preventDefault();
-    let user: User;
-    this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
-      user = response
-      user.avatar = this.form.value.userPicture;
-      this.userService.updateUser(user, () => { });
-    })
+    // let user: User;
+    // this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
+    //   user = response
+    //   user.avatar = this.form.value.userPicture;
+    //   this.userService.updateUser(user, () => { });
+    // })
+    if (this.userInfo) {
+      this.userInfo.avatar = this.form.value.userPicture;
+      this.userService.updateUser(this.userInfo, () => { });
+    }
+
 
     let colonie: Colonie;
     colonie = { colonyName: this.form.value.colonyName, colonyPicture: this.form.value.colonyPicture, user: this.userInfo, goldLastRecolt: new Date().getTime(), ironLastRecolt: new Date().getTime(), woodLastRecolt: new Date().getTime(), lastStrike: new Date().getTime() }

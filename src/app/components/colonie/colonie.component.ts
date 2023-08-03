@@ -40,6 +40,7 @@ export class ColonieComponent implements OnInit {
   ngOnInit(): void {
     this.colonyId = this.route.snapshot.paramMap.get('id');
     this.updateAllQueries();
+
   }
 
   @ViewChild(RessourceModalComponent)
@@ -151,12 +152,12 @@ export class ColonieComponent implements OnInit {
 
           this.colonie = response;
           this.recolt = { wood: this.colonie.woodLastRecolt, iron: this.colonie.ironLastRecolt, gold: this.colonie.goldLastRecolt }
-
           this.timer = {
-            wood: { days: 0, hours: 1, minutes: 0, seconds: 0 },
-            iron: { days: 0, hours: 1, minutes: 0, seconds: 0 },
-            gold: { days: 0, hours: 1, minutes: 0, seconds: 0 },
+            wood: { days: 0, hours: 0, minutes: 0, seconds: 0 },
+            iron: { days: 0, hours: 0, minutes: 0, seconds: 0 },
+            gold: { days: 0, hours: 0, minutes: 0, seconds: 0 },
           };
+
 
           this.service.timer(this.recolt.wood, this.timer.wood, 3600 * 3);
           this.service.timer(this.recolt.iron, this.timer.iron, 3600 * 3);
@@ -181,6 +182,7 @@ export class ColonieComponent implements OnInit {
 
     }
   }
+
 
 }
 

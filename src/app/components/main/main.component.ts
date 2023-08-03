@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
     private service: Services,
     private userService: UserService,
     private colonyService: ColonyService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userService.getUserInfo(

@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MoneyService {
-  private wood = 1;
-  private iron = 2;
-  private gold = 5;
+  private wood = 10;
+  private iron = 30;
+  private gold = 100;
   private cowboy = {
     qty: [1, 5, 10],
     price: [50, 200, 350]

@@ -1,4 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Ressources } from 'src/app/interfaces/ressources';
+import { MoneyService } from 'src/app/services/money.service';
+import { RessourceService } from 'src/app/services/ressource.service';
 
 @Component({
   selector: 'app-equipments-modal',
@@ -7,9 +11,10 @@ import { Component, Input } from '@angular/core';
 })
 export class EquipmentsModalComponent {
   @Input() equipment: string;
+  @Input() resource!: Ressources;
   isVisible = false;
 
-  constructor() {
+  constructor(public ressourceService: RessourceService, public router: Router) {
     this.equipment = '';
   }
 
@@ -20,4 +25,6 @@ export class EquipmentsModalComponent {
   closeModal() {
     this.isVisible = false;
   }
+
+
 }

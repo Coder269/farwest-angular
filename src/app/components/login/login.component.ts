@@ -1,3 +1,4 @@
+import { DeclarationListEmitMode } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -27,9 +28,11 @@ export class LoginComponent {
 
   public onSubmit(event: Event) {
     event.preventDefault();
-    this.isLoading = true;
-    this.submited = true;
-    setTimeout(() => this.loginIn(), 3000);
+    if (this.loginForm.valid) {
+      this.isLoading = true;
+      this.submited = true;
+      setTimeout(() => this.loginIn(), 3000);
+    }
   }
 
   loginIn() {
