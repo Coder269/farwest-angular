@@ -19,7 +19,7 @@
   />
 
   <div *ngIf="isMenuVisible" class="menuContent">
-    <h2>My assets</h2>
+    <h2>My profil</h2>
     <img [src]="getAvatar()" alt="" class="avatar" />
     <div class="stat">
       <h3>Level {{ getLevel() }}</h3>
@@ -41,9 +41,6 @@
       </div>
       <div class="text">Logout</div>
     </button>
-
-    <!-- <input type="submit" value="Log Out" class="btn" (click)="logOut()" />
-    <hr /> -->
 
     <div class="menu">
       <a class="menuItem" [routerLink]="['/ranking']"

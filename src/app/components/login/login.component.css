@@ -56,4 +56,10 @@ a {
   .btn {
     width: 10rem;
   }
+  label {
+    font-size: 1.2em;
+  }
+  a {
+    font-size: 1.2em;
+  }
 }
