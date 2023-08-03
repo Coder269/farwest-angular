@@ -3,20 +3,28 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']
+  styleUrls: ['./ranking.component.css'],
 })
 export class RankingComponent {
-
-  private bestPlayer = ["Marco", "Lionel", "Pierre", "Pierre", "Pierre", "Pierre", "Pierre", "Pierre", "Pierre", "Pierre"]
-  private restPlayer = this.bestPlayer.slice(3)
+  private bestPlayer = [
+    'Marco',
+    'Lucas',
+    'Jean-Jérome',
+    'Marie-Odile',
+    'Cunégonde',
+    'Lionel',
+    'Jacquouille',
+    'Patrick',
+    'Ursule',
+    'Mathew',
+  ];
+  private restPlayer = this.bestPlayer.slice(3);
 
   public getBestPlayer() {
-    return this.bestPlayer
+    return this.bestPlayer;
   }
 
   public getRestPlayer() {
-    return this.restPlayer
+    return this.restPlayer;
   }
-
-
 }
