@@ -91,7 +91,6 @@ export class ColonieComponent implements OnInit {
   }
 
   buyCowboy(numberOfCowboy: number) {
-    console.log(this.ressource);
     for (let i = 0; i < this.moneyService.getCowBoyPrices().qty.length; i++) {
       if (numberOfCowboy == this.moneyService.getCowBoyPrices().qty[i]) {
         let userMoney: number;
