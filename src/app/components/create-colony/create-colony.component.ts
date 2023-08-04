@@ -26,7 +26,7 @@ export class CreateColonyComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private audioService: AudioService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.audioService.play();
@@ -49,15 +49,9 @@ export class CreateColonyComponent implements OnInit {
 
   public onSubmit(event: Event) {
     event.preventDefault();
-    // let user: User;
-    // this.userService.getUserInfo(localStorage.getItem('userName'), (response: User) => {
-    //   user = response
-    //   user.avatar = this.form.value.userPicture;
-    //   this.userService.updateUser(user, () => { });
-    // })
     if (this.userInfo) {
       this.userInfo.avatar = this.form.value.userPicture;
-      this.userService.updateUser(this.userInfo, () => {});
+      this.userService.updateUser(this.userInfo, () => { });
     }
 
     let colonie: Colonie;
@@ -65,16 +59,16 @@ export class CreateColonyComponent implements OnInit {
       colonyName: this.form.value.colonyName,
       colonyPicture: this.form.value.colonyPicture,
       user: this.userInfo,
-      goldLastRecolt: new Date().getTime(),
-      ironLastRecolt: new Date().getTime(),
-      woodLastRecolt: new Date().getTime(),
+      goldLastRecolt: new Date().getTime() - 3 * 3600 * 1000,
+      ironLastRecolt: new Date().getTime() - 3 * 3600 * 1000,
+      woodLastRecolt: new Date().getTime() - 3 * 3600 * 1000,
       lastStrike: new Date().getTime(),
     };
     this.colonyService.createColony(colonie, (response: Colonie) => {
       let ressource: Ressources = {
-        wood: 0,
-        iron: 0,
-        gold: 0,
+        wood: 10,
+        iron: 5,
+        gold: 2,
         sawMill: 1,
         mine: 1,
         forge: 1,
@@ -82,7 +76,7 @@ export class CreateColonyComponent implements OnInit {
       if (response.id != null) {
         ressource.colony = response;
       }
-      this.ressourceService.createRessource(ressource, () => {});
+      this.ressourceService.createRessource(ressource, () => { });
       this.router.navigate(['/main']);
     });
   }
