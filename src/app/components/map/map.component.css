@@ -51,3 +51,9 @@ h2 {
   bottom: 0;
   margin-bottom: 1rem;
 }
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

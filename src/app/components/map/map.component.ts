@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Colonie } from 'src/app/interfaces/colonie';
 import { ColonyService } from 'src/app/services/colony.service';
 
@@ -12,10 +13,9 @@ export class MapComponent implements OnInit {
   allColonies: Colonie[] = [];
   coloniesUser: Colonie[] = [];
   otherColonies: Colonie[] = [];
+  isLoading: boolean = false;
 
-  constructor(private colonyService: ColonyService) {}
-
-  public isLoading: boolean = false;
+  constructor(private colonyService: ColonyService, private router: Router) {}
 
   ngOnInit() {
     this.colonyService.getAllColonies().subscribe({
@@ -48,5 +48,12 @@ export class MapComponent implements OnInit {
       );
     }
     this.colonyService.otherColonies = this.otherColonies;
+  }
+
+  onLoading(colonyId: number | undefined) {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.router.navigate(['/attack', colonyId]);
+    }, 3000);
   }
 }
