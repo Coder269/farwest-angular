@@ -72,6 +72,7 @@ export class CreateColonyComponent implements OnInit {
         sawMill: 1,
         mine: 1,
         forge: 1,
+        numberOfCowboy: 30
       };
       if (response.id != null) {
         ressource.colony = response;
