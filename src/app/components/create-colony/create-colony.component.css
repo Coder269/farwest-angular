@@ -96,6 +96,12 @@ input[type="radio"]:checked + label > img {
     height: 15rem;
   }
 
+  .avatarList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
   .avatar {
     width: 7rem;
     height: 7rem;

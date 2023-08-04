@@ -37,11 +37,11 @@ h2 {
 
 .colony {
   text-align: center;
-  margin: 10px; /* Ajoute une marge pour espacer les colonies */
+  margin: 10px;
 }
 
 .colony:hover {
-  border: solid red;
+  border: solid #a71d24;
   cursor: pointer;
 }
 
