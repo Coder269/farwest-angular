@@ -21,6 +21,7 @@ import { EquipmentsModalComponent } from './components/equipments-modal/equipmen
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ResultModalComponent } from './components/result-modal/result-modal.component';
+import { Loader2Component } from './components/loader2/loader2.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ResultModalComponent } from './components/result-modal/result-modal.com
     RessourceModalComponent,
     LoaderComponent,
     ResultModalComponent,
+    Loader2Component,
   ],
   imports: [
     BrowserModule,

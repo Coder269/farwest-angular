@@ -1,1 +1,21 @@
-<div class="mainResultContainer"></div>
+<div class="mainResultContainer" *ngIf="isVisible">
+  <div class="modalContent">
+    <ng-container *ngIf="attack === 'Win'" class="winContainer">
+      <img
+        src="../../../assets/gagné.png"
+        alt="Étoile de sherif"
+        class="icon"
+      />
+      <p>You win Lulu City</p>
+    </ng-container>
+
+    <ng-container *ngIf="attack === 'Lost'" class="lostContainer">
+      <img
+        src="../../../assets/perdu.png"
+        alt="crane de la defaite"
+        class="icon"
+      />
+      <p>You Lost</p>
+    </ng-container>
+  </div>
+</div>
