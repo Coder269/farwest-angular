@@ -104,18 +104,21 @@ h4 {
   .colonyPicture {
     width: 30rem;
   }
+
   .displayRessources {
     width: 100%;
     height: 15rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     gap: 20px;
     margin-bottom: 7rem;
   }
 
   h3 {
-    font-size: 1.4em;
+    font-size: 1em;
   }
+
   .equipments {
     margin-top: 2rem;
   }
