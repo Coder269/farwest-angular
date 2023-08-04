@@ -60,6 +60,7 @@ export class Services {
     '../../assets/cowgirl3.png',
     '../../assets/cowboy4.png',
     '../../assets/cowboy5.png',
+    '../../assets/sheriff.png',
   ];
 
   public isLoggedIn(): boolean {
