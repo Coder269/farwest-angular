@@ -37,7 +37,7 @@
       <img src="../../../assets/close.png" alt="cross to close modal" class="close" (click)="closeModal()" />
 
       <p>How many gold do you want to sell ? <br />Max : {{ resource.gold }}
-        <br>{{this.moneyService.getRessourcesPrices()[0]}} $ per wood
+        <br>{{this.moneyService.getRessourcesPrices()[2]}} $ per wood
       </p>
       <input type="text" placeholder="1000" [(ngModel)]="qtyToSell[2]" (ngModelChange)="updatePrices()" />
       <div class="priceToSell">
