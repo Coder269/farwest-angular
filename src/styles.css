@@ -4,6 +4,7 @@
   letter-spacing: 2px;
   font-weight: 400;
   font-size: 21px;
+  cursor: crosshair;
 }
 
 body {
@@ -36,6 +37,15 @@ h2 {
 
 img {
   border-radius: 10px;
+}
+
+.disabled {
+  background-color: gray;
+
+}
+
+.disabled:hover {
+  background-color: gray;
 }
 
 @media screen and (min-width: 600px) {

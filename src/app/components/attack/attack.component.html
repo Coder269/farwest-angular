@@ -1,8 +1,18 @@
 <app-menu></app-menu>
 
 <div class="mainAttackComponent">
-  <h2>Colony name</h2>
-  <img src="../../../assets/village3.jpg" alt="" class="colonyPicture" />
+  <h2>{{ colonyName }}</h2>
+  <img [src]="colonyImageUrl" alt="" class="colonyPicture" />
+
+  <div class="redirect">
+    <a [routerLink]="['/map']">
+      <img
+        class="redirectImg"
+        src="../../../assets/arrow.png"
+        alt="back arrow"
+      />
+    </a>
+  </div>
 
   <div class="horizontalLine"></div>
 
@@ -10,13 +20,18 @@
     <img
       src="../../../assets/cowboy (3).png"
       alt="cowboy masked"
-      class="costCowboyImg"
+      class="costCowboyImgCowboy"
     />
-    <p>= money</p>
+    <img
+      src="../../../assets/equal.png"
+      alt="equal sign"
+      class="costCowboyImgEqual"
+    />
+    <p class="cowboyCostPrice">5</p>
     <img
       src="../../../assets/money-bag.png"
       alt="money bag"
-      class="costCowboyImg"
+      class="costCowboyImgBag"
     />
   </div>
 
@@ -27,9 +42,11 @@
     <button class="btn">Confirm</button>
   </div>
 
-  <p>Attack cost :</p>
-  <p>500</p>
-  <img src="../../../assets/money-bag.png" alt="money bag" class="bag" />
+  <div class="attackCost">
+    <p>Attack cost :</p>
+    <p>500</p>
+    <img src="../../../assets/money-bag.png" alt="money bag" class="bag" />
+  </div>
 
   <button class="btnAttack">Let's Attack</button>
 </div>

@@ -85,11 +85,34 @@ input[type="radio"]:checked + label > img {
     width: 15rem;
   }
 
+  .colonyList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
   img {
     width: 20rem;
+    height: 15rem;
+  }
+
+  .avatarList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 
   .avatar {
     width: 7rem;
+    height: 7rem;
+  }
+
+  .revolverLeft {
+    width: 4rem;
+    height: 4rem;
+  }
+  .revolverRight {
+    width: 4rem;
+    height: 4rem;
   }
 }

@@ -1,7 +1,9 @@
+import { DeclarationListEmitMode } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
+import { AudioService } from 'src/app/audio.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,8 +15,9 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private audioService: AudioService
+  ) {}
 
   public loginError: boolean = false;
   public submited: boolean = false;
@@ -23,9 +26,19 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
+  public isLoading: boolean = false;
+
   public onSubmit(event: Event) {
     event.preventDefault();
-    this.submited = true;
+    if (this.loginForm.valid) {
+      this.isLoading = true;
+      this.submited = true;
+      setTimeout(() => this.loginIn(), 3000);
+      this.audioService.playButtonClickSound();
+    }
+  }
+
+  loginIn() {
     fetch('http://localhost:8080/login', {
       method: 'post',
       headers: {
@@ -42,7 +55,10 @@ export class LoginComponent {
           this.userService.getUserInfo(username, (response: User) => {
             userInfo = response;
             localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('userName', userInfo.username ? userInfo.username : '');
+            localStorage.setItem(
+              'userName',
+              userInfo.username ? userInfo.username : ''
+            );
             localStorage.setItem(
               'userId',
               userInfo.id?.toString() ? userInfo.id?.toString() : ''
@@ -51,20 +67,14 @@ export class LoginComponent {
           this.userService.getUserInfo(username, (response: User) => {
             if (response.avatar == null) {
               this.router.navigate(['/create-colony']);
+            } else {
+              this.router.navigate(['/main']);
             }
-            else {
-              this.router.navigate(['/main'])
-            }
-          })
-
+          });
         }
-
-
-
-
-
       } else {
         this.loginError = true;
+        this.isLoading = false;
       }
     });
   }

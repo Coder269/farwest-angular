@@ -29,4 +29,10 @@ a {
   .avatar {
     width: 10rem;
   }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
 }

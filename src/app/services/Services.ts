@@ -16,7 +16,7 @@ export class Services {
     public colonyService?: ColonyService,
     public userService?: UserService,
     public ressourceService?: RessourceService
-  ) { }
+  ) {}
 
   //update the count down in every 1 second
   public timer(date: number, timer: Timer, nbSec: number) {
@@ -25,25 +25,21 @@ export class Services {
       // get the today's date and time
       let now = new Date().getTime();
 
-
       //find the difference b/w countDown and now
       let diff = date - now;
 
       //now we are calculating time in days, hrs, minutes, and seconds.
       timer.days = Math.floor(diff / (3600 * 24 * 1000)); //days
-      timer.hours = Math.floor(
-        (diff % (3600 * 24 * 1000)) / (1000 * 60 * 60)
-      ); //hrs
+      timer.hours = Math.floor((diff % (3600 * 24 * 1000)) / (1000 * 60 * 60)); //hrs
 
       timer.minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); //min,
       //console.log(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
       timer.seconds = Math.floor((diff % (1000 * 60)) / 1000); //sec
-      console.log(timer)
       //now output the result in an element with id ="time"
     }, 1000);
   }
 
-  public colonieList: Array<{ colonyName: String, colonyPicture: String }> = [
+  public colonieList: Array<{ colonyName: String; colonyPicture: String }> = [
     { colonyName: 'colony 1', colonyPicture: `../../assets/village1.jpg` },
     { colonyName: 'colony 2', colonyPicture: `../../assets/village2.jpg` },
     { colonyName: 'colony 3', colonyPicture: `../../assets/village3.jpg` },
@@ -51,6 +47,8 @@ export class Services {
     { colonyName: 'colony 5', colonyPicture: `../../assets/village5.jpg` },
     { colonyName: 'colony 6', colonyPicture: `../../assets/village6.jpg` },
     { colonyName: 'colony 7', colonyPicture: `../../assets/village7.jpg` },
+    { colonyName: 'colony 8', colonyPicture: `../../assets/village8.jpg` },
+    { colonyName: 'colony 9', colonyPicture: `../../assets/village9.jpg` },
   ];
 
   public avatarList = [
@@ -62,6 +60,7 @@ export class Services {
     '../../assets/cowgirl3.png',
     '../../assets/cowboy4.png',
     '../../assets/cowboy5.png',
+    '../../assets/sheriff.png',
   ];
 
   public isLoggedIn(): boolean {
@@ -74,8 +73,13 @@ export class Services {
     return status;
   }
 
-  public getRandomColonies(count: number): Array<{ colonyName: String, colonyPicture: String }> {
-    const randomColonies = new Array<{ colonyName: String, colonyPicture: String }>;
+  public getRandomColonies(
+    count: number
+  ): Array<{ colonyName: String; colonyPicture: String }> {
+    const randomColonies = new Array<{
+      colonyName: String;
+      colonyPicture: String;
+    }>();
     const allColonies = this.colonieList.slice();
 
     while (randomColonies.length < count && allColonies.length > 0) {

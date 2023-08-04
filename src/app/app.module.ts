@@ -19,6 +19,7 @@ import { MapComponent } from './components/map/map.component';
 import { AttackComponent } from './components/attack/attack.component';
 import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,14 @@ import { RessourceModalComponent } from './components/ressource-modal/ressource-
     AttackComponent,
     EquipmentsModalComponent,
     RessourceModalComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
