@@ -41,6 +41,11 @@ img {
 
 .disabled {
   background-color: gray;
+
+}
+
+.disabled:hover {
+  background-color: gray;
 }
 
 @media screen and (min-width: 600px) {
