@@ -35,7 +35,6 @@ export class MainComponent implements OnInit {
       parseInt(localStorage.getItem('userId')!),
       (response: Array<Colonie>) => {
         this.colonyList = response;
-        console.log(this.colonyList);
       }
     );
   }
