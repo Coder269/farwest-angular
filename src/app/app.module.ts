@@ -20,6 +20,7 @@ import { AttackComponent } from './components/attack/attack.component';
 import { EquipmentsModalComponent } from './components/equipments-modal/equipments-modal.component';
 import { RessourceModalComponent } from './components/ressource-modal/ressource-modal.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ResultModalComponent } from './components/result-modal/result-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     EquipmentsModalComponent,
     RessourceModalComponent,
     LoaderComponent,
+    ResultModalComponent,
   ],
   imports: [
     BrowserModule,
