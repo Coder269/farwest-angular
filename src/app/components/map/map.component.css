@@ -26,12 +26,14 @@ h2 {
 .colonyPicture {
   width: 4rem;
   border-radius: 40px;
+  margin-top: 1.5rem;
 }
 
 .displayColoniesContainer {
   margin-top: 4rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 5rem;
   justify-content: center;
 }
 
@@ -41,8 +43,14 @@ h2 {
 }
 
 .colony:hover {
-  border: solid #a71d24;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #a71d2456;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .miniMenu {
