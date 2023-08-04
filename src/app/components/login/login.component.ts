@@ -34,7 +34,7 @@ export class LoginComponent {
       this.isLoading = true;
       this.submited = true;
       setTimeout(() => this.loginIn(), 3000);
-      this.audioService.playButtonClickSound();
+      this.audioService.playLoginSound();
     }
   }
 

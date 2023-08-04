@@ -5,7 +5,6 @@ import { Ressources } from 'src/app/interfaces/ressources';
 import { Colonie } from 'src/app/interfaces/colonie';
 import { RessourceModalComponent } from '../ressource-modal/ressource-modal.component';
 import { EquipmentsModalComponent } from '../equipments-modal/equipments-modal.component';
-
 import { RessourceService } from 'src/app/services/ressource.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgFor } from '@angular/common';

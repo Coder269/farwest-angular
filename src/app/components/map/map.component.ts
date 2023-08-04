@@ -15,6 +15,8 @@ export class MapComponent implements OnInit {
 
   constructor(private colonyService: ColonyService) {}
 
+  public isLoading: boolean = false;
+
   ngOnInit() {
     this.colonyService.getAllColonies().subscribe({
       next: (response: Colonie[]) => {
