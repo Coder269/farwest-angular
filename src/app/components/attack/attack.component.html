@@ -27,7 +27,7 @@
       alt="equal sign"
       class="costCowboyImgEqual"
     />
-    <p class="cowboyCostPrice">5</p>
+    <p class="cowboyCostPrice">150</p>
     <img
       src="../../../assets/money-bag.png"
       alt="money bag"
@@ -48,7 +48,10 @@
     <img src="../../../assets/money-bag.png" alt="money bag" class="bag" />
   </div>
 
-  <button class="btnAttack">Let's Attack</button>
+  <button type="button" class="btnAttack" (click)="openWinModal()">
+    Let's Attack
+  </button>
 </div>
 
+<app-result-modal></app-result-modal>
 <app-mini-menu class="miniMenu"></app-mini-menu>

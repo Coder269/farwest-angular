@@ -49,7 +49,7 @@ export class MenuComponent implements OnInit {
 
   public logOut() {
     localStorage.setItem('isLoggedIn', 'false');
-    this.audioService.playButtonClickSound();
+    this.audioService.playLogoutSound();
     this.router.navigate(['/login']);
   }
 }

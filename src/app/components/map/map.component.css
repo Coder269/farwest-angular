@@ -26,12 +26,14 @@ h2 {
 .colonyPicture {
   width: 4rem;
   border-radius: 40px;
+  margin-top: 1.5rem;
 }
 
 .displayColoniesContainer {
   margin-top: 4rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 5rem;
   justify-content: center;
 }
 
@@ -41,8 +43,13 @@ h2 {
 }
 
 .colony:hover {
-  border: solid #a71d24;
-  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #a71d2456;
+  border-radius: 10px;
 }
 
 .miniMenu {
@@ -50,4 +57,10 @@ h2 {
   width: 100%;
   bottom: 0;
   margin-bottom: 1rem;
+}
+
+.middle {
+  position: absolute;
+  top: 40%;
+  left: 50%;
 }
