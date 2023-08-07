@@ -38,17 +38,23 @@
   <p>How many cowboys do you want to send to fight ?</p>
 
   <div class="numberCowboy">
-    <input type="text" id="numberCowboyInput" />
-    <button class="btn">Confirm</button>
+    <input type="number" id="numberCowboyInput" [(ngModel)]="numberOfCowboys" />
+    <button
+      class="btn"
+      [disabled]="numberOfCowboys * availableMoney > availableMoney"
+      (click)="ConfirmButtonDisabled()"
+    >
+      Confirm
+    </button>
   </div>
 
   <div class="attackCost">
     <p>Attack cost :</p>
-    <p>500</p>
+    <p>{{ numberOfCowboys * 150 }}</p>
     <img src="../../../assets/money-bag.png" alt="money bag" class="bag" />
   </div>
 
-  <button type="button" class="btnAttack" (click)="openWinModal()">
+  <button type="button" class="btnAttack" (click)="onConfirmButtonClicked()">
     Let's Attack
   </button>
 </div>
