@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
+import { AudioService } from 'src/app/services/audio.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private audioService: AudioService
   ) {}
 
   public loginError: boolean = false;
@@ -29,6 +31,7 @@ export class LoginComponent {
   public onSubmit(event: Event) {
     event.preventDefault();
     if (this.loginForm.valid) {
+      this.audioService.playLoginSound();
       this.isLoading = true;
       this.submited = true;
       setTimeout(() => this.loginIn(), 3000);
