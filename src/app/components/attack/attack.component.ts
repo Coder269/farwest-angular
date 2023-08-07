@@ -97,7 +97,7 @@ export class AttackComponent implements OnInit, OnDestroy {
     }
   }
 
-  //METHOD TO SET MUSIC
+  //METHOD TO STOP MUSIC
   ngOnDestroy(): void {
     this.audioService.stopAttackSound();
   }
