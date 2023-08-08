@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MainComponent implements OnInit {
   public avatar?: string | null;
-  public colonyList?: Array<Colonie>;
+  public colonyList: Array<Colonie> = [];
 
   constructor(
     private service: Services,
