@@ -1,20 +1,22 @@
 <div class="mapContainer">
-  <h2>Colonies to Conquer</h2>
-
-  <div class="displayColoniesContainer">
+  <h2 *ngIf="!isLoading">Colonies to Conquer</h2>
+  <div *ngIf="isLoading" class="middle">
+    <app-loader2></app-loader2>
+  </div>
+  <div class="displayColoniesContainer" *ngIf="!isLoading">
     <div
       class="colony"
       *ngFor="let colony of otherColonies"
-      [routerLink]="['/attack', colony.id]"
+      (click)="onLoading(colony.id)"
     >
       <img
         [src]="colony.colonyPicture"
         alt="Colony Image"
         class="colonyPicture"
       />
-      <h3>{{ colony.colonyName }}</h3>
+      <h3 class="colonyName">{{ colony.colonyName }}</h3>
     </div>
   </div>
 </div>
 
-<app-mini-menu class="miniMenu"></app-mini-menu>
+<app-mini-menu *ngIf="!isLoading" class="miniMenu"></app-mini-menu>

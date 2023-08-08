@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
-import { AudioService } from 'src/app/audio.service';
+import { AudioService } from 'src/app/services/audio.service';
 import { Ressources } from 'src/app/interfaces/ressources';
 import { Services } from 'src/app/services/Services';
 import { UserService } from 'src/app/services/user.service';
@@ -49,7 +49,7 @@ export class MenuComponent implements OnInit {
 
   public logOut() {
     localStorage.setItem('isLoggedIn', 'false');
-    this.audioService.playButtonClickSound();
+    this.audioService.playLogoutSound();
     this.router.navigate(['/login']);
   }
 }

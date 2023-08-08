@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Models/User';
-import { AudioService } from 'src/app/audio.service';
+import { AudioService } from 'src/app/services/audio.service';
 import { Colonie } from 'src/app/interfaces/colonie';
 import { Services } from 'src/app/services/Services';
 import { ColonyService } from 'src/app/services/colony.service';

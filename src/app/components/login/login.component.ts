@@ -1,9 +1,8 @@
-import { DeclarationListEmitMode } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
-import { AudioService } from 'src/app/audio.service';
+import { AudioService } from 'src/app/services/audio.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -31,10 +30,10 @@ export class LoginComponent {
   public onSubmit(event: Event) {
     event.preventDefault();
     if (this.loginForm.valid) {
+      this.audioService.playLoginSound();
       this.isLoading = true;
       this.submited = true;
       setTimeout(() => this.loginIn(), 3000);
-      this.audioService.playButtonClickSound();
     }
   }
 

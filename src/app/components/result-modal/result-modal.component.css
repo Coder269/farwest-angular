@@ -1,0 +1,39 @@
+.mainResultContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  width: 60%;
+  height: 30%;
+  background-color: #29353f;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 5rem;
+}
+
+p {
+  width: 80%;
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .modalContent {
+    width: 30%;
+    height: 30%;
+  }
+}

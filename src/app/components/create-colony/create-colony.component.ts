@@ -3,13 +3,12 @@ import { Colonie } from 'src/app/interfaces/colonie';
 import { Services } from 'src/app/services/Services';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/Models/User';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ColonyService } from 'src/app/services/colony.service';
 import { Router } from '@angular/router';
 import { RessourceService } from 'src/app/services/ressource.service';
 import { Ressources } from 'src/app/interfaces/ressources';
-import { AudioService } from 'src/app/audio.service';
+import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
   selector: 'app-create-colony',
@@ -26,7 +25,7 @@ export class CreateColonyComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private audioService: AudioService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.audioService.play();
@@ -51,7 +50,7 @@ export class CreateColonyComponent implements OnInit {
     event.preventDefault();
     if (this.userInfo) {
       this.userInfo.avatar = this.form.value.userPicture;
-      this.userService.updateUser(this.userInfo, () => { });
+      this.userService.updateUser(this.userInfo, () => {});
     }
 
     let colonie: Colonie;
@@ -72,12 +71,12 @@ export class CreateColonyComponent implements OnInit {
         sawMill: 1,
         mine: 1,
         forge: 1,
-        numberOfCowboy: 30
+        numberOfCowboy: 30,
       };
       if (response.id != null) {
         ressource.colony = response;
       }
-      this.ressourceService.createRessource(ressource, () => { });
+      this.ressourceService.createRessource(ressource, () => {});
       this.router.navigate(['/main']);
     });
   }

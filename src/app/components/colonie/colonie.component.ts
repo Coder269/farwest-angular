@@ -5,14 +5,13 @@ import { Ressources } from 'src/app/interfaces/ressources';
 import { Colonie } from 'src/app/interfaces/colonie';
 import { RessourceModalComponent } from '../ressource-modal/ressource-modal.component';
 import { EquipmentsModalComponent } from '../equipments-modal/equipments-modal.component';
-
 import { RessourceService } from 'src/app/services/ressource.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgFor } from '@angular/common';
 import { MoneyService } from 'src/app/services/money.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/Models/User';
 import { ColonyService } from 'src/app/services/colony.service';
+import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
   selector: 'app-colonie',
@@ -34,7 +33,8 @@ export class ColonieComponent implements OnInit {
     public moneyService: MoneyService,
     private userService: UserService,
     private route: ActivatedRoute,
-    private colonyService: ColonyService
+    private colonyService: ColonyService,
+    private audioService: AudioService
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +49,7 @@ export class ColonieComponent implements OnInit {
     if (this.RessourceModal) {
       this.RessourceModal.type = 'Wood';
       this.RessourceModal.openModal();
+      this.audioService.playMoneySound();
     }
   }
 
@@ -56,6 +57,7 @@ export class ColonieComponent implements OnInit {
     if (this.RessourceModal) {
       this.RessourceModal.type = 'Iron';
       this.RessourceModal.openModal();
+      this.audioService.playMoneySound();
     }
   }
 
@@ -63,6 +65,7 @@ export class ColonieComponent implements OnInit {
     if (this.RessourceModal) {
       this.RessourceModal.type = 'Gold';
       this.RessourceModal.openModal();
+      this.audioService.playMoneySound();
     }
   }
 
@@ -73,6 +76,7 @@ export class ColonieComponent implements OnInit {
     if (this.EquipmentsModal) {
       this.EquipmentsModal.equipment = 'SawMill';
       this.EquipmentsModal.openModal();
+      this.audioService.playWoodSound();
     }
   }
 
@@ -80,6 +84,7 @@ export class ColonieComponent implements OnInit {
     if (this.EquipmentsModal) {
       this.EquipmentsModal.equipment = 'Forge';
       this.EquipmentsModal.openModal();
+      this.audioService.playIronSound();
     }
   }
 
@@ -87,6 +92,7 @@ export class ColonieComponent implements OnInit {
     if (this.EquipmentsModal) {
       this.EquipmentsModal.equipment = 'Mine';
       this.EquipmentsModal.openModal();
+      this.audioService.playGoldSound();
     }
   }
 
@@ -96,6 +102,7 @@ export class ColonieComponent implements OnInit {
         let userMoney: number;
         let nbCowBoys;
         this.userService;
+        this.audioService.playCowboySound();
 
         this.userService.getUserInfo(
           localStorage.getItem('userName'),

@@ -14,7 +14,10 @@ export class EquipmentsModalComponent {
   @Input() resource!: Ressources;
   isVisible = false;
 
-  constructor(public ressourceService: RessourceService, public router: Router) {
+  constructor(
+    public ressourceService: RessourceService,
+    public router: Router
+  ) {
     this.equipment = '';
   }
 
@@ -25,6 +28,4 @@ export class EquipmentsModalComponent {
   closeModal() {
     this.isVisible = false;
   }
-
-
 }
