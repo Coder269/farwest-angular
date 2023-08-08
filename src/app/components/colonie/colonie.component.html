@@ -10,49 +10,25 @@
     <li class="buyCowboyItem">
       <img class="icon" src="../../assets/cowboy-hat.png" alt="" />
       <div class="container">
-        <input
-          [ngClass]="{
+        <input [ngClass]="{
             disabled: user.money != undefined ? user.money < 50 : false
-          }"
-          type="button"
-          name=""
-          id=""
-          class="btn"
-          value="+1 : $50"
-          (click)="buyCowboy(1)"
-        />
+          }" type="button" name="" id="" class="btn" value="+1 : $50" (click)="buyCowboy(1)" />
       </div>
     </li>
     <li class="buyCowboyItem">
       <img class="icon" src="../../assets/cowboy-hat.png" alt="" />
       <div class="container">
-        <input
-          [ngClass]="{
-            disabled: user.money != undefined ? user.money < 350 : false
-          }"
-          type="button"
-          name=""
-          id=""
-          class="btn"
-          value="+5 : $200"
-          (click)="buyCowboy(5)"
-        />
+        <input [ngClass]="{
+            disabled: user.money != undefined ? user.money < 200 : false
+          }" type="button" name="" id="" class="btn" value="+5 : $200" (click)="buyCowboy(5)" />
       </div>
     </li>
     <li class="buyCowboyItem">
       <img class="icon" src="../../assets/cowboy-hat.png" alt="" />
       <div class="container">
-        <input
-          [ngClass]="{
+        <input [ngClass]="{
             disabled: user.money != undefined ? user.money < 350 : false
-          }"
-          type="button"
-          name=""
-          id=""
-          class="btn"
-          value="+10 : $350"
-          (click)="buyCowboy(10)"
-        />
+          }" type="button" name="" id="" class="btn" value="+10 : $350" (click)="buyCowboy(10)" />
       </div>
     </li>
   </ul>
@@ -62,30 +38,15 @@
       <h3>Sell ressources :</h3>
       <ul class="ressources">
         <li class="ressourcesItem">
-          <img
-            src="../../assets/wood.png"
-            alt="wood icon"
-            class="icon"
-            (click)="openWoodModal()"
-          />
+          <img src="../../assets/wood.png" alt="wood icon" class="icon" (click)="openWoodModal()" />
           <p>{{ ressource.wood }}</p>
         </li>
         <li class="ressourcesItem">
-          <img
-            src="../../assets/pig-iron.png"
-            alt="iron icon"
-            class="icon"
-            (click)="openIronModal()"
-          />
+          <img src="../../assets/pig-iron.png" alt="iron icon" class="icon" (click)="openIronModal()" />
           <p>{{ ressource.iron }}</p>
         </li>
         <li class="ressourcesItem">
-          <img
-            src="../../assets/gold-ingots.png"
-            alt="gold icon"
-            class="icon"
-            (click)="openGoldModal()"
-          />
+          <img src="../../assets/gold-ingots.png" alt="gold icon" class="icon" (click)="openGoldModal()" />
           <p>{{ ressource.gold }}</p>
         </li>
       </ul>
@@ -96,17 +57,9 @@
       <ul class="ressources unclock">
         <li class="ressourcesItem">
           <div>
-            <input
-              [ngClass]="{
+            <input [ngClass]="{
                 disabled: timer.wood.hours + timer.wood.minutes > 0
-              }"
-              type="button"
-              name=""
-              id=""
-              class="btn unlockBtn"
-              value="Wood"
-              (click)="recoltRessource('wood')"
-            />
+              }" type="button" name="" id="" class="btn unlockBtn" value="Wood" (click)="recoltRessource('wood')" />
           </div>
 
           <p *ngIf="timer.wood.hours + timer.wood.minutes > 0">
@@ -115,17 +68,9 @@
         </li>
         <li class="ressourcesItem">
           <div>
-            <input
-              [ngClass]="{
+            <input [ngClass]="{
                 disabled: timer.iron.hours + timer.iron.minutes > 0
-              }"
-              type="button"
-              name=""
-              id=""
-              class="btn unlockBtn"
-              value="Iron"
-              (click)="recoltRessource('iron')"
-            />
+              }" type="button" name="" id="" class="btn unlockBtn" value="Iron" (click)="recoltRessource('iron')" />
           </div>
           <p *ngIf="timer.iron.hours + timer.iron.minutes > 0">
             {{ timer.iron.hours }}h{{ timer.iron.minutes }}min
@@ -133,17 +78,9 @@
         </li>
         <li class="ressourcesItem">
           <div>
-            <input
-              [ngClass]="{
+            <input [ngClass]="{
                 disabled: timer.gold.hours + timer.gold.minutes > 0
-              }"
-              type="button"
-              name=""
-              id=""
-              class="btn unlockBtn"
-              value="Gold"
-              (click)="recoltRessource('gold')"
-            />
+              }" type="button" name="" id="" class="btn unlockBtn" value="Gold" (click)="recoltRessource('gold')" />
           </div>
           <p *ngIf="timer.gold.hours + timer.gold.minutes > 0">
             {{ timer.gold.hours }}h{{ timer.gold.minutes }}min
@@ -156,35 +93,20 @@
       <h3>Equipments :</h3>
       <ul class="equipments">
         <li class="equipmentItem">
-          <img
-            src="../../../assets/scirie.png"
-            alt="scirie"
-            class="icon"
-            (click)="openScirieModal()"
-          />
+          <img src="../../../assets/scirie.png" alt="scirie" class="icon" (click)="openScirieModal()" />
         </li>
         <li class="equipmentItem">
-          <img
-            src="../../../assets/forge.png"
-            alt="forge"
-            class="icon"
-            (click)="openForgeModal()"
-          />
+          <img src="../../../assets/forge.png" alt="forge" class="icon" (click)="openForgeModal()" />
         </li>
         <li class="equipmentItem">
-          <img
-            src="../../../assets/mine.png"
-            alt="mine"
-            class="icon"
-            (click)="openMineModal()"
-          />
+          <img src="../../../assets/mine.png" alt="mine" class="icon" (click)="openMineModal()" />
         </li>
       </ul>
     </div>
   </div>
 </div>
 
-<app-ressource-modal [resource]="ressource"></app-ressource-modal>
+<app-ressource-modal [resource]="ressource" [colony]="colonie"></app-ressource-modal>
 <app-equipments-modal [resource]="ressource"></app-equipments-modal>
 
 <app-mini-menu class="miniMenu"></app-mini-menu>

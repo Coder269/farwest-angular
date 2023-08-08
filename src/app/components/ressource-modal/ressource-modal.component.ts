@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
+import { Colonie } from 'src/app/interfaces/colonie';
 import { Ressources } from 'src/app/interfaces/ressources';
 import { MoneyService } from 'src/app/services/money.service';
 import { RessourceService } from 'src/app/services/ressource.service';
@@ -24,6 +25,8 @@ export class RessourceModalComponent implements OnInit {
   public prices!: Array<number>
   private user!: User;
 
+  @Input() colony!: Colonie
+
 
 
   constructor(public moneyService: MoneyService, private userService: UserService, private ressourceService: RessourceService, private route: Router) {
@@ -45,6 +48,7 @@ export class RessourceModalComponent implements OnInit {
 
   closeModal() {
     this.isVisible = false;
+    this.route.navigate(['/colony/' + this.colony.id])
   }
   getIsVisible() {
     return this.isVisible;
