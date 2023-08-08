@@ -9,7 +9,7 @@
       <input id="userName" type="text" formControlName="username" />
       <div *ngIf="loginForm.controls.username.errors">
         <span *ngIf="loginForm.controls.username.errors?.['required']"
-          >User name is required</span
+          >Username is required</span
         >
       </div>
     </fieldset>
@@ -18,12 +18,16 @@
       <input type="password" id="password" formControlName="password" />
       <div *ngIf="loginForm.controls.password.errors">
         <span *ngIf="loginForm.controls.password.errors?.['required']"
-          >Password is required.</span
+          >Password is required</span
         >
       </div>
     </fieldset>
     <input type="submit" value="Sign In" class="btn" />
-    <span *ngIf="loginError">User name or password error</span>
+
+    <span *ngIf="loginError" style="color: red"
+      >The username or password is incorrect!</span
+    >
+
   </form>
   <ul>
     <li><a [routerLink]="['/register']">Create account</a></li>

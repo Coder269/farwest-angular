@@ -15,7 +15,7 @@ export class ResultModalComponent {
     this.attack = '';
   }
 
-  openModal() {
+  openModal(colonyId: number) {
     this.isVisible = true;
     if (this.attack === 'Win') {
       this.audioService.playWinSound();
@@ -24,11 +24,18 @@ export class ResultModalComponent {
     }
 
     setTimeout(() => {
-      this.closeModal();
+      this.closeModal(colonyId);
     }, 4000);
   }
 
-  closeModal() {
+  closeModal(colonyId: number) {
     this.isVisible = false;
+
+    if (this.attack === 'Win') {
+      this.router.navigate(['/colonie/' + colonyId])
+    } else {
+      this.router.navigate(['/main'])
+    }
+
   }
 }
