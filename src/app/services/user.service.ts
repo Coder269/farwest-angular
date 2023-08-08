@@ -26,8 +26,8 @@ export class UserService {
 
   public updateMoney(userId: number, money: number, callback: Function): void {
     this.httpClient.put(API_URL + `update-money/${userId}`, money).subscribe({
-      next: (response) => callback(response)
-    })
+      next: (response) => callback(response),
+    });
   }
 
   public updateUser(newUser: User, callback: Function): void {
@@ -36,5 +36,9 @@ export class UserService {
         callback(response);
       },
     });
+  }
+
+  public getAllUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(API_URL + 'all-users');
   }
 }
