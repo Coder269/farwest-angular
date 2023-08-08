@@ -32,10 +32,11 @@
     <img src="../../../assets/money-bag.png" alt="money bag" class="bag" />
   </div>
 
-  <button type="button" class="btnAttack" (click)="attack()">
-    Let's Attack
-  </button>
+  <input type="button"
+    [ngClass]="{disabled: (user.money!=undefined && numberOfCowboy*costOfCowboy>user.money)?true:false}"
+    value="Let's Attack" type="button" class="btn btnAttack" (click)="attack()">
+
 </div>
 
-<app-result-modal></app-result-modal>
+<app-result-modal [colony]="colony"></app-result-modal>
 <app-mini-menu class="miniMenu"></app-mini-menu>

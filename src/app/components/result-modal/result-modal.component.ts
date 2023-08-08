@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Colonie } from 'src/app/interfaces/colonie';
 import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { AudioService } from 'src/app/services/audio.service';
 })
 export class ResultModalComponent {
   @Input() attack: string;
+  @Input() colony!: Colonie;
   isVisible = false;
 
   constructor(public router: Router, private audioService: AudioService) {

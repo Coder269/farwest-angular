@@ -2,18 +2,26 @@
 <div class="allComponent">
   <h2>Ranking</h2>
   <div class="podium">
-    <h3>Podium :</h3>
+    <h2>Podium</h2>
     <div class="podiumItem first">
       <img class="icon" src="../../assets/first.png" alt="" />
-      <p>{{ getBestPlayer()[0] }}</p>
+      <p>
+        <strong>{{ firstPlayer }}</strong> ({{ firstNbColonies }} colonies)
+      </p>
     </div>
+    <br />
     <div class="podiumItem second">
       <img class="icon" src="../../assets/second.png" alt="" />
-      <p>{{ getBestPlayer()[1] }}</p>
+      <p>
+        <strong>{{ secondPlayer }}</strong> ({{ secondNbColonies }} colonies)
+      </p>
     </div>
+    <br />
     <div class="podiumItem third">
       <img class="icon" src="../../assets/third.png" alt="" />
-      <p>{{ getBestPlayer()[2] }}</p>
+      <p>
+        <strong>{{ thirdPlayer }}</strong> ({{ thirsNbColonies }} colonies)
+      </p>
     </div>
   </div>
 
