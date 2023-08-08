@@ -7,7 +7,6 @@ import { RessourceModalComponent } from '../ressource-modal/ressource-modal.comp
 import { EquipmentsModalComponent } from '../equipments-modal/equipments-modal.component';
 import { RessourceService } from 'src/app/services/ressource.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgFor } from '@angular/common';
 import { MoneyService } from 'src/app/services/money.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/Models/User';
