@@ -13,7 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MainComponent implements OnInit {
   public avatar?: string | null;
-  public colonyList?: Array<Colonie>;
+  public colonyList: Array<Colonie> = [];
+  public isLoaded: boolean = false;
 
   constructor(
     private service: Services,
@@ -35,6 +36,7 @@ export class MainComponent implements OnInit {
       parseInt(localStorage.getItem('userId')!),
       (response: Array<Colonie>) => {
         this.colonyList = response;
+        this.isLoaded = true;
       }
     );
   }
