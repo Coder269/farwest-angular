@@ -25,7 +25,7 @@ export class AudioService {
     this.audioPlayer = new Audio();
     this.audioPlayer.src = 'assets/track2.mp3';
     this.audioPlayer.loop = true;
-    this.audioPlayer.volume = 0.5; // volume (de 0 à 1)
+    this.audioPlayer.volume = 0.3; // volume (de 0 à 1)
     //LOGIN SOUND
     this.loginSound = new Audio();
     this.loginSound.src = 'assets/balle2.mp3';
@@ -33,7 +33,7 @@ export class AudioService {
     this.attackSound = new Audio();
     this.attackSound.src = 'assets/cavalerie2.mp3';
     this.attackSound.loop = true;
-    this.attackSound.volume = 0.5;
+    this.attackSound.volume = 0.3;
     //LOGOUT SOUND
     this.logoutSound = new Audio();
     this.logoutSound.src = 'assets/ricochet.mp3';
@@ -46,19 +46,19 @@ export class AudioService {
     //WOOD EQUIPMENT MODAL SOUND
     this.woodSound = new Audio();
     this.woodSound.src = 'assets/wood.mp3';
-    this.woodSound.volume = 0.5;
+    this.woodSound.volume = 0.4;
     //IRON EQUIPMENT MODAL SOUND
     this.ironSound = new Audio();
     this.ironSound.src = 'assets/iron.mp3';
-    this.ironSound.volume = 0.5;
+    this.ironSound.volume = 0.4;
     //GOLD EQUIPMENT MODAL SOUND
     this.goldSound = new Audio();
     this.goldSound.src = 'assets/gold.mp3';
-    this.goldSound.volume = 0.5;
+    this.goldSound.volume = 0.4;
     //MONEY FOR RESSOURCES MODALS
     this.moneySound = new Audio();
     this.moneySound.src = 'assets/money.mp3';
-    this.moneySound.volume = 0.5;
+    this.moneySound.volume = 0.4;
     //COWBOY SOUND
     this.cowboySound = new Audio();
     this.cowboySound.src = 'assets/cowboy.mp3';
