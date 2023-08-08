@@ -3,10 +3,11 @@
   <h2>My colonies</h2>
   <img [src]="avatar" alt="" class="avatar" />
   <h3 *ngIf="this.colonyList.length > 0">Your colonies :</h3>
-  <div *ngIf="this.colonyList.length === 0 && isLoaded">
+  <div *ngIf="this.colonyList.length === 0">
     <br />
     <hr />
-    <h3>You don't have any colony!</h3>
+    <h3 *ngIf="isLoaded">You don't have any colony!</h3>
+    <h3 *ngIf="!isLoaded">Loading please wait...</h3>
     <hr />
   </div>
   <ul>
