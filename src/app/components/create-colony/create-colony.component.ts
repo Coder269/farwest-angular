@@ -3,7 +3,6 @@ import { Colonie } from 'src/app/interfaces/colonie';
 import { Services } from 'src/app/services/Services';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/Models/User';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ColonyService } from 'src/app/services/colony.service';
 import { Router } from '@angular/router';
