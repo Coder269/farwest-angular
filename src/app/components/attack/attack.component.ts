@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ColonyService } from 'src/app/services/colony.service';
 import { ResultModalComponent } from '../result-modal/result-modal.component';
 import { AudioService } from 'src/app/services/audio.service';
+import { RessourceService } from 'src/app/services/ressource.service';
 
 @Component({
   selector: 'app-attack',
@@ -14,109 +15,97 @@ import { AudioService } from 'src/app/services/audio.service';
   styleUrls: ['./attack.component.css'],
 })
 export class AttackComponent implements OnInit, OnDestroy {
-  colonyId: number = 0;
-  otherColonies: Colonie[] = [];
-  ressourcesInfo: Ressources[] = [];
-  colonyName: string = '';
-  colonyImageUrl: string = '';
-  numberOfCowboys: number = 0;
-  availableMoney: number = 0;
-  connectedUser: User | null = null;
+  ressources!: Ressources;
+  colony!: Colonie
+  user!: User
+
+  numberOfCowboy: number = 0;
+  costOfCowboy: number = 100;
+
+
 
   constructor(
     private colonyService: ColonyService,
+    private ressourceService: RessourceService,
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private audioService: AudioService
-  ) {}
+    private audioService: AudioService,
+  ) { }
 
   ngOnInit(): void {
     this.audioService.stop();
     this.audioService.playAttackSound();
-    this.colonyId = parseInt(this.route.snapshot.params['id']);
-    this.otherColonies = this.colonyService.otherColonies;
-    this.colonyService.getColonieById(
-      this.colonyId,
-      (ressourcesInfo: Ressources[]) => {
-        this.ressourcesInfo = ressourcesInfo;
-      }
-    );
 
-    for (let colony of this.otherColonies) {
-      if (colony.id === this.colonyId) {
-        if (colony.colonyName) this.colonyName = colony.colonyName;
-        if (colony.colonyPicture) this.colonyImageUrl = colony.colonyPicture;
-      }
+
+    console.log(this.route.snapshot.params['id']);
+
+    const userName = localStorage.getItem('userName')
+    if (userName) {
+      this.userService.getUserInfo(userName, (user: User) => this.user = user)
     }
 
-    const username: string | null = localStorage.getItem('connectedUsername');
-
-    if (username) {
-      this.userService.getUserInfo(username, (userInfo: User) => {
-        this.connectedUser = userInfo;
-      });
+    const colonyId = this.route.snapshot.paramMap.get('id');
+    if (colonyId) {
+      this.colonyService.getColonieById(parseInt(colonyId), (colony: Colonie) => this.colony = colony);
+      this.ressourceService.getRessourceOfColony(parseInt(colonyId), (ressources: Ressources) => this.ressources = ressources)
     }
+
+
   }
-
-  //METHOD TO CHOOSE NUMBER OF COWBOYS TO ATTACK
-  updateNumberOfCowboys(value: string) {
-    if (value !== null && value !== undefined) {
-      this.numberOfCowboys = parseInt(value) || 0;
-    } else {
-      this.numberOfCowboys = 0;
-    }
-  }
-
-  //METHOD TO CHECK MONEY OF USER TO BUY COWBOYS
-  ConfirmButtonDisabled(): boolean {
-    if (
-      this.connectedUser &&
-      this.connectedUser.money &&
-      this.connectedUser.money > 0
-    ) {
-      return this.numberOfCowboys <= Math.floor(this.connectedUser.money / 150);
-    } else {
-      return true;
-    }
-  }
-
-  //METHOD TO CHECK IF USER HAS ENOUGH COWBOYS AND IF WIN OR LOST
-  onConfirmButtonClicked(): void {
-    if (this.ConfirmButtonDisabled()) {
-      return;
-    }
-    if (
-      this.numberOfCowboys > 0 &&
-      this.ressourcesInfo[0]?.numberOfCowboy &&
-      this.numberOfCowboys <= this.ressourcesInfo[0].numberOfCowboy
-    ) {
-      this.openWinModal();
-    } else {
-      this.openLostModal();
-    }
-  }
-
   //METHOD TO STOP MUSIC
   ngOnDestroy(): void {
     this.audioService.stopAttackSound();
+  }
+
+  async attack() {
+    let attackCost = this.numberOfCowboy * this.costOfCowboy
+
+    if (this.user.money != undefined && attackCost > this.user.money) {
+      return
+    }
+    else {
+      if (this.user.id != undefined && this.user.money != undefined && this.ressources.id != undefined && this.ressources.numberOfCowboy != undefined) {
+        this.user.money -= attackCost
+        this.userService.updateMoney(this.user.id, this.user.money, () => { })
+        let cowboyLeft = this.ressources.numberOfCowboy - this.numberOfCowboy;
+        cowboyLeft < 0 ? cowboyLeft = 0 : true
+        this.ressourceService.updateCowboys(this.ressources.id, cowboyLeft, () => { })
+        if (cowboyLeft == 0) {
+          this.colony.user = this.user
+          this.colonyService.updateColony(this.colony, () => { })
+          this.openWinModal()
+          console.log("gagné");
+
+        }
+        else {
+          this.openLostModal()
+          console.log("perdu");
+        }
+      }
+      //requette pr soustraire les cowboys à la colonie => 
+      //dans la callback : 
+      //si nb cowboy <=0, on initialise la colonie à 0 et on change le userId, et on envoie la modal de victoire
+      //sinon on soustrait les cowboys à la colonie, et on envoie la modal de defaite
+
+    }
   }
 
   //METHODS TO DISPLAY MODAL WIN OR LOST
   @ViewChild(ResultModalComponent)
   ResultModalComponent?: ResultModalComponent;
 
-  async openWinModal() {
-    if (this.ResultModalComponent) {
+  openWinModal() {
+    if (this.ResultModalComponent && this.colony.id) {
       this.ResultModalComponent.attack = 'Win';
-      this.ResultModalComponent.openModal();
+      this.ResultModalComponent.openModal(this.colony.id);
     }
   }
 
   openLostModal() {
-    if (this.ResultModalComponent) {
+    if (this.ResultModalComponent && this.colony.id) {
       this.ResultModalComponent.attack = 'Lost';
-      this.ResultModalComponent.openModal();
+      this.ResultModalComponent.openModal(this.colony.id);
     }
   }
 }

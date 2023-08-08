@@ -1,60 +1,38 @@
-<app-menu></app-menu>
+<app-menu [currentUser]="user"></app-menu>
 
 <div class="mainAttackComponent">
-  <h2>{{ colonyName }}</h2>
-  <img [src]="colonyImageUrl" alt="" class="colonyPicture" />
+  <h2>{{ colony.colonyName }}</h2>
+  <img [src]="colony.colonyPicture" alt="" class="colonyPicture" />
 
   <div class="redirect">
     <a [routerLink]="['/map']">
-      <img
-        class="redirectImg"
-        src="../../../assets/arrow.png"
-        alt="back arrow"
-      />
+      <img class="redirectImg" src="../../../assets/arrow.png" alt="back arrow" />
     </a>
   </div>
 
   <div class="horizontalLine"></div>
 
   <div class="costCowboy">
-    <img
-      src="../../../assets/cowboy (3).png"
-      alt="cowboy masked"
-      class="costCowboyImgCowboy"
-    />
-    <img
-      src="../../../assets/equal.png"
-      alt="equal sign"
-      class="costCowboyImgEqual"
-    />
-    <p class="cowboyCostPrice">150</p>
-    <img
-      src="../../../assets/money-bag.png"
-      alt="money bag"
-      class="costCowboyImgBag"
-    />
+    <img src="../../../assets/cowboy (3).png" alt="cowboy masked" class="costCowboyImgCowboy" />
+    <img src="../../../assets/equal.png" alt="equal sign" class="costCowboyImgEqual" />
+    <p class="cowboyCostPrice">100</p>
+    <img src="../../../assets/money-bag.png" alt="money bag" class="costCowboyImgBag" />
   </div>
 
   <p>How many cowboys do you want to send to fight ?</p>
 
   <div class="numberCowboy">
-    <input type="number" id="numberCowboyInput" [(ngModel)]="numberOfCowboys" />
-    <button
-      class="btn"
-      [disabled]="numberOfCowboys * availableMoney > availableMoney"
-      (click)="ConfirmButtonDisabled()"
-    >
-      Confirm
-    </button>
+    <input type="number" id="numberCowboyInput" [(ngModel)]="numberOfCowboy" />
+
   </div>
 
   <div class="attackCost">
     <p>Attack cost :</p>
-    <p>{{ numberOfCowboys * 150 }}</p>
+    <p>{{ numberOfCowboy * costOfCowboy }}</p>
     <img src="../../../assets/money-bag.png" alt="money bag" class="bag" />
   </div>
 
-  <button type="button" class="btnAttack" (click)="onConfirmButtonClicked()">
+  <button type="button" class="btnAttack" (click)="attack()">
     Let's Attack
   </button>
 </div>
