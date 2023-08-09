@@ -63,20 +63,30 @@ export class RankingComponent implements OnInit {
     let topThree;
     if (rankingsNb.length === 1) topThree = rankingsNb.slice(0, 1);
     else if (rankingsNb.length === 2) topThree = rankingsNb.slice(0, 2);
-    else if (rankingsNb.length === 3 || rankingsNb.length > 3)
-      topThree = rankingsNb.slice(0, 3);
-
+    else if (rankingsNb.length >= 3) topThree = rankingsNb.slice(0, 3);
+    console.log(topThree);
     for (let ranking of rankings) {
       if (topThree && ranking.nbColony === topThree[0]) {
         this.firstPlayer = ranking.username;
         this.firstNbColonies = ranking.nbColony;
       }
-      if (topThree && topThree.length > 1 && ranking.nbColony === topThree[1]) {
+      if (
+        topThree &&
+        topThree.length > 1 &&
+        ranking.nbColony === topThree[1] &&
+        ranking.username != this.firstPlayer
+      ) {
         this.secondPlayer = ranking.username;
         this.secondNbColonies = ranking.nbColony;
       }
 
-      if (topThree && topThree.length > 2 && ranking.nbColony === topThree[2]) {
+      if (
+        topThree &&
+        topThree.length > 2 &&
+        ranking.nbColony === topThree[2] &&
+        ranking.username != this.secondPlayer &&
+        ranking.username != this.firstPlayer
+      ) {
         this.thirdPlayer = ranking.username;
         this.thirsNbColonies = ranking.nbColony;
       }
