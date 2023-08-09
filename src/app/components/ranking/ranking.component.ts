@@ -60,14 +60,20 @@ export class RankingComponent implements OnInit {
 
   doThreePositions(rankingsNb: Array<number>, rankings: Array<Ranking>) {
     rankingsNb.sort((a, b) => b - a);
-    console.log(rankings);
     let topThree;
     if (rankingsNb.length === 1) topThree = rankingsNb.slice(0, 1);
     else if (rankingsNb.length === 2) topThree = rankingsNb.slice(0, 2);
     else if (rankingsNb.length >= 3) topThree = rankingsNb.slice(0, 3);
-    console.log(topThree);
+    console.log(rankings);
+    this.firstPlayer = '';
+    this.secondPlayer = '';
+    this.thirdPlayer = '';
     for (let ranking of rankings) {
-      if (topThree && ranking.nbColony === topThree[0]) {
+      if (
+        topThree &&
+        this.firstPlayer === '' &&
+        ranking.nbColony === topThree[0]
+      ) {
         this.firstPlayer = ranking.username;
         this.firstNbColonies = ranking.nbColony;
       }
@@ -76,7 +82,8 @@ export class RankingComponent implements OnInit {
         topThree.length > 1 &&
         ranking.nbColony === topThree[1] &&
         this.secondPlayer === '' &&
-        ranking.username != this.firstPlayer
+        ranking.username != this.firstPlayer &&
+        ranking.username != this.thirdPlayer
       ) {
         this.secondPlayer = ranking.username;
         this.secondNbColonies = ranking.nbColony;
